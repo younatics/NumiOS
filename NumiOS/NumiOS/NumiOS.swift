@@ -9,35 +9,40 @@
 import Foundation
 
 extension Array {
+    /// Get shape of array, need to check matrix validation
     public func shape() -> [Int] {
         var array = self as Array<AnyObject>
-        var shape = [Int]()
+        var shape = [array.count]
         
         while let element = array.first as? Array<AnyObject> {
-            shape.append(array.count)
+            shape.append(element.count)
             array = element
         }
         return shape
     }
+    
 }
 
 public class NumiOS: NSObject {
-    @objc public static let shared = NumiOS()
-    
-    var defaultValue = 0
-    var encodingValue = 1
-    
-//    public func oneHotEncoding<T: Numeric>(array:[T], maxLength: Int) -> [[T]] {
-//        var returnArray = Array(repeating: Array(repeating: defaultValue, count: maxLength), count: array.count)
-//
-//        for (index, value) in array.enumerated() {
-//            if value > maxLength {
-//                fatalError("One hot encoding value should not be bigger than max length")
-//            }
-//            returnArray[index][value] = encodingValue
-//        }
-//        return returnArray
-//    }
+    public class func oneHotEncoding<T: Numeric & Comparable>(array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
+        var max = max
+        guard let calculatedMax = array.max() as? Int else { fatalError("Max value shoul be exist")}
+        
+        if calculatedMax + 1 > max {
+            max = calculatedMax + 1
+        }
+        
+        var returnArray = Array(repeating: Array(repeating: defaultValue, count: max), count: array.count)
+
+        for (index, value) in array.enumerated() {
+            if let value = value as? Int, value <= max {
+                returnArray[index][value] = encodingValue
+            } else {
+                fatalError("One hot encoding value should not be bigger than max length")
+            }
+        }
+        return returnArray
+    }
     
     public func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
         var returnArray = [[T]]()

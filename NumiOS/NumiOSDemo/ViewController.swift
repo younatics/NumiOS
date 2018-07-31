@@ -15,15 +15,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let array = [[[[0,1],[2,3]],[[4,5],[6,7]],[[0,1],[2,3]],[[4,5],[6,7]]]]
+        let array = [[[1,2],[1,3]]]
         let array2 = [[0.0,1.0],[2.0,3.0]]
-        let ddd = [0,1,2,3,4]
-
-        print(array.shape())
+        let array3 = [0,1,2,3,4]
+        
+        print(NumiOS.oneHotEncoding(array: array3))
         printTextView.text =
         """
         input array: \(array)
-        NumiOS.shared.shape(array): \(NumiOS.shared.shape(array2))
         """
         
         // Do any additional setup after loading the view, typically from a nib.
