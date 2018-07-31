@@ -8,6 +8,18 @@
 
 import Foundation
 
+extension Array {
+    public func shape() -> [Int] {
+        var array = self as Array<AnyObject>
+        var shape = [Int]()
+        
+        while let element = array.first as? Array<AnyObject> {
+            shape.append(array.count)
+            array = element
+        }
+        return shape
+    }
+}
 
 public class NumiOS: NSObject {
     @objc public static let shared = NumiOS()
@@ -26,18 +38,6 @@ public class NumiOS: NSObject {
 //        }
 //        return returnArray
 //    }
-    
-    public func ssss(_ array: Array<AnyObject>) -> [Int] {
-        var array = array
-        var shape = [Int]()
-        
-        while let element = array.first as? Array<AnyObject> {
-            shape.append(array.count)
-            array = element
-        }
-        
-        return shape
-    }
     
     public func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
         var returnArray = [[T]]()

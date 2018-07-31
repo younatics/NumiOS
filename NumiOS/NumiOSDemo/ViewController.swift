@@ -19,8 +19,7 @@ class ViewController: UIViewController {
         let array2 = [[0.0,1.0],[2.0,3.0]]
         let ddd = [0,1,2,3,4]
 
-        print(NumiOS.shared.ssss(array as Array<AnyObject>))
-//        array.shape()
+        print(array.shape())
         printTextView.text =
         """
         input array: \(array)
