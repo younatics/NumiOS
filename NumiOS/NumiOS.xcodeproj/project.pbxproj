@@ -17,6 +17,8 @@
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
 		19B0A5282110233200D2F73A /* NumiOSDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5272110233200D2F73A /* NumiOSDemoTests.swift */; };
 		19B0A5332110233200D2F73A /* NumiOSDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5322110233200D2F73A /* NumiOSDemoUITests.swift */; };
+		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
+		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		19B0A52E2110233200D2F73A /* NumiOSDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A5322110233200D2F73A /* NumiOSDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSDemoUITests.swift; sourceTree = "<group>"; };
 		19B0A5342110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,7 @@
 				19B0A5262110233200D2F73A /* NumiOSDemoTests */,
 				19B0A5312110233200D2F73A /* NumiOSDemoUITests */,
 				19B0A4F32110231900D2F73A /* Products */,
+				19B0A5402110290200D2F73A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				19B0A4F52110231900D2F73A /* NumiOS.h */,
+				19B0A53E2110286300D2F73A /* NumiOS.swift */,
 				19B0A4F62110231900D2F73A /* Info.plist */,
 			);
 			path = NumiOS;
@@ -176,6 +182,13 @@
 				19B0A5342110233200D2F73A /* Info.plist */,
 			);
 			path = NumiOSDemoUITests;
+			sourceTree = "<group>";
+		};
+		19B0A5402110290200D2F73A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +306,7 @@
 				TargetAttributes = {
 					19B0A4F12110231900D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					19B0A4FA2110231900D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -378,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +592,7 @@
 		19B0A5072110231900D2F73A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -594,6 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,6 +619,7 @@
 		19B0A5082110231900D2F73A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -627,6 +645,7 @@
 		19B0A50A2110231900D2F73A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G7K3CN2JU;
 				INFOPLIST_FILE = NumiOSTests/Info.plist;
@@ -645,6 +664,7 @@
 		19B0A50B2110231900D2F73A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G7K3CN2JU;
 				INFOPLIST_FILE = NumiOSTests/Info.plist;
