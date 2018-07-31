@@ -24,7 +24,11 @@ extension Array {
 }
 
 public class NumiOS: NSObject {
-    public class func oneHotEncoding<T: Numeric & Comparable>(array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
+    public class func shape(_ array:Array<AnyObject>) -> [Int] {
+        return array.shape()
+    }
+
+    public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
         var max = max
         guard let calculatedMax = array.max() as? Int else { fatalError("Max value shoul be exist")}
         

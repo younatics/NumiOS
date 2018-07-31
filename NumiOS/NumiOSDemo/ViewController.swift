@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         let array2 = [[0.0,1.0],[2.0,3.0]]
         let array3 = [0,1,2,3,4]
         
-        print(NumiOS.oneHotEncoding(array: array3))
+        print(NumiOS.oneHotEncoding(array3))
         printTextView.text =
         """
         input array: \(array)
