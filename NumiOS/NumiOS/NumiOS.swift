@@ -8,26 +8,32 @@
 
 import Foundation
 
+extension Sequence where Element: Sequence {
+    public func sum() -> Element {
+        return 0 as! Self.Element
+    }
+}
+
 public class NumiOS: NSObject {
     @objc public static let shared = NumiOS()
     
     var defaultValue = 0
     var encodingValue = 1
     
-    public func oneHotEncoding(array:[Int], maxLength: Int) -> [[Int]] {
-        var returnArray = Array(repeating: Array(repeating: defaultValue, count: maxLength), count: array.count)
-        
-        for (index, value) in array.enumerated() {
-            if value > maxLength {
-                fatalError("One hot encoding value should not be bigger than max length")
-            }
-            returnArray[index][value] = encodingValue
-        }
-        return returnArray
-    }
+//    public func oneHotEncoding<T: Numeric>(array:[T], maxLength: Int) -> [[T]] {
+//        var returnArray = Array(repeating: Array(repeating: defaultValue, count: maxLength), count: array.count)
+//
+//        for (index, value) in array.enumerated() {
+//            if value > maxLength {
+//                fatalError("One hot encoding value should not be bigger than max length")
+//            }
+//            returnArray[index][value] = encodingValue
+//        }
+//        return returnArray
+//    }
     
-    public func concatenate(_ arrays: [[Double]]...) -> [[Double]] {
-        var returnArray = [[Double]]()
+    public func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
+        var returnArray = [[T]]()
         
         for array in arrays {
             if returnArray.count == 0 {
@@ -43,7 +49,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public func transpose(_ array:[[Double]]) -> [[Double]] {
+    public func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
         let transposedArray = array[0].indices.map { col in
             array.indices.map { row in
                 array[row][col]
@@ -52,12 +58,13 @@ public class NumiOS: NSObject {
         return transposedArray
     }
     
-    public func reshape(_ array:[[Double]], shape: [Int]) -> [[Double]] {
+    public func reshape<T: Numeric>(_ array:[[T]], shape: [Int]) -> [[T]] {
         var count = 0
         if shape.count != 2 {
             fatalError("Shape only support second dimention")
         }
-        var returnArray = Array(repeating: Array(repeating: 0.0, count: shape[1]), count: shape[0])
+        
+        var returnArray = Array(repeating: Array(repeating: T(exactly: 0), count: shape[1]), count: shape[0])
         
         for oneArray in array {
             for value in oneArray {
@@ -66,10 +73,10 @@ public class NumiOS: NSObject {
             }
         }
         
-        return returnArray
+        return Array(returnArray) as! [[T]]
     }
     
-    public func shape(_ array: [[Double]]) -> (row: Int, column: Int) {
+    public func shape<T: Numeric>(_ array: [[T]]) -> (row: Int, column: Int) {
         let column = array.count
         guard let row = array.first?.count else {
             fatalError("Should not be nil")

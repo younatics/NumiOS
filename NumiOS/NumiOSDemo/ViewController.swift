@@ -15,7 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let array = [[0.0,1.0],[2.0,3.0]]
+        let array = [[[0.0,1.0],[2.0,3.0]]].sum()
+        let ddd = [0,1,2,3,4]
+
         print(NumiOS.shared.shape(array))
         
         printTextView.text =
@@ -26,7 +28,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
