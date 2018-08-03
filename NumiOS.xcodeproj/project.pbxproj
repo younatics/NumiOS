@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		19B0A4FC2110231900D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
-		19B0A5012110231900D2F73A /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5002110231900D2F73A /* NumiOSTests.swift */; };
 		19B0A5032110231900D2F73A /* NumiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19B0A4F52110231900D2F73A /* NumiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19B0A5132110233100D2F73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5122110233100D2F73A /* AppDelegate.swift */; };
 		19B0A5152110233100D2F73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5142110233100D2F73A /* ViewController.swift */; };
 		19B0A5182110233100D2F73A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A5162110233100D2F73A /* Main.storyboard */; };
 		19B0A51A2110233200D2F73A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A5192110233200D2F73A /* Assets.xcassets */; };
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
-		19B0A5282110233200D2F73A /* NumiOSDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5272110233200D2F73A /* NumiOSDemoTests.swift */; };
-		19B0A5332110233200D2F73A /* NumiOSDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5322110233200D2F73A /* NumiOSDemoUITests.swift */; };
 		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
 		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
 /* End PBXBuildFile section */
@@ -50,8 +47,6 @@
 		19B0A4F52110231900D2F73A /* NumiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumiOS.h; sourceTree = "<group>"; };
 		19B0A4F62110231900D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A4FB2110231900D2F73A /* NumiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B0A5002110231900D2F73A /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
-		19B0A5022110231900D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A5102110233100D2F73A /* NumiOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumiOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A5122110233100D2F73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B0A5142110233100D2F73A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,11 +55,7 @@
 		19B0A51C2110233200D2F73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B0A51E2110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A5232110233200D2F73A /* NumiOSDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B0A5272110233200D2F73A /* NumiOSDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSDemoTests.swift; sourceTree = "<group>"; };
-		19B0A5292110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A52E2110233200D2F73A /* NumiOSDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B0A5322110233200D2F73A /* NumiOSDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSDemoUITests.swift; sourceTree = "<group>"; };
-		19B0A5342110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,10 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				19B0A4F42110231900D2F73A /* NumiOS */,
-				19B0A4FF2110231900D2F73A /* NumiOSTests */,
 				19B0A5112110233100D2F73A /* NumiOSDemo */,
-				19B0A5262110233200D2F73A /* NumiOSDemoTests */,
-				19B0A5312110233200D2F73A /* NumiOSDemoUITests */,
 				19B0A4F32110231900D2F73A /* Products */,
 				19B0A5402110290200D2F73A /* Frameworks */,
 			);
@@ -144,15 +132,6 @@
 			path = NumiOS;
 			sourceTree = "<group>";
 		};
-		19B0A4FF2110231900D2F73A /* NumiOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				19B0A5002110231900D2F73A /* NumiOSTests.swift */,
-				19B0A5022110231900D2F73A /* Info.plist */,
-			);
-			path = NumiOSTests;
-			sourceTree = "<group>";
-		};
 		19B0A5112110233100D2F73A /* NumiOSDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,24 +143,6 @@
 				19B0A51E2110233200D2F73A /* Info.plist */,
 			);
 			path = NumiOSDemo;
-			sourceTree = "<group>";
-		};
-		19B0A5262110233200D2F73A /* NumiOSDemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				19B0A5272110233200D2F73A /* NumiOSDemoTests.swift */,
-				19B0A5292110233200D2F73A /* Info.plist */,
-			);
-			path = NumiOSDemoTests;
-			sourceTree = "<group>";
-		};
-		19B0A5312110233200D2F73A /* NumiOSDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				19B0A5322110233200D2F73A /* NumiOSDemoUITests.swift */,
-				19B0A5342110233200D2F73A /* Info.plist */,
-			);
-			path = NumiOSDemoUITests;
 			sourceTree = "<group>";
 		};
 		19B0A5402110290200D2F73A /* Frameworks */ = {
@@ -400,7 +361,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B0A5012110231900D2F73A /* NumiOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +377,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B0A5282110233200D2F73A /* NumiOSDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B0A5332110233200D2F73A /* NumiOSDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
