@@ -39,7 +39,7 @@ class NumiOSTests: XCTestCase {
     }
     
     func testShape() {
-        var testCase: [AnyObject] = [1,2,3,4].map({ $0 as AnyObject })
+        var testCase: [Any] = [1,2,3,4]
         var result = NumiOS.shape(testCase)
         XCTAssertEqual(result, [4])
         
@@ -47,7 +47,7 @@ class NumiOSTests: XCTestCase {
             [1,2,3,4,5,6],
             [1,2,3,4,5,6],
             [1,2,3],
-        ].map({ $0 as AnyObject })
+        ]
         result = NumiOS.shape(testCase)
         XCTAssertEqual(result, [3,6])
     }
