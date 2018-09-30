@@ -16,7 +16,20 @@
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
 		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
 		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		60819F452160911800DE4A7B /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F442160911800DE4A7B /* NumiOSTests.swift */; };
+		60819F472160911800DE4A7B /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		60819F4E2160912F00DE4A7B /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60819F482160911800DE4A7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19B0A4E92110231900D2F73A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19B0A4F12110231900D2F73A;
+			remoteInfo = NumiOS;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1917F19F216089F200958D44 /* NumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumExtension.swift; sourceTree = "<group>"; };
@@ -31,6 +44,10 @@
 		19B0A51C2110233200D2F73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B0A51E2110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
+		60819F422160911700DE4A7B /* NumiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		60819F442160911800DE4A7B /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
+		60819F462160911800DE4A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		60819F3F2160911700DE4A7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60819F472160911800DE4A7B /* NumiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -57,6 +82,7 @@
 			children = (
 				19B0A4F42110231900D2F73A /* NumiOS */,
 				19B0A5112110233100D2F73A /* NumiOSDemo */,
+				60819F432160911800DE4A7B /* NumiOSTests */,
 				19B0A4F32110231900D2F73A /* Products */,
 				19B0A5402110290200D2F73A /* Frameworks */,
 			);
@@ -67,6 +93,7 @@
 			children = (
 				19B0A4F22110231900D2F73A /* NumiOS.framework */,
 				19B0A5102110233100D2F73A /* NumiOSDemo.app */,
+				60819F422160911700DE4A7B /* NumiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,6 +127,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60819F432160911800DE4A7B /* NumiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				60819F442160911800DE4A7B /* NumiOSTests.swift */,
+				60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */,
+				60819F462160911800DE4A7B /* Info.plist */,
+			);
+			path = NumiOSTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,13 +188,31 @@
 			productReference = 19B0A5102110233100D2F73A /* NumiOSDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		60819F412160911700DE4A7B /* NumiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60819F4A2160911800DE4A7B /* Build configuration list for PBXNativeTarget "NumiOSTests" */;
+			buildPhases = (
+				60819F3E2160911700DE4A7B /* Sources */,
+				60819F3F2160911700DE4A7B /* Frameworks */,
+				60819F402160911700DE4A7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				60819F492160911800DE4A7B /* PBXTargetDependency */,
+			);
+			name = NumiOSTests;
+			productName = NumiOSTests;
+			productReference = 60819F422160911700DE4A7B /* NumiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		19B0A4E92110231900D2F73A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Seungyoun Yi";
 				TargetAttributes = {
@@ -167,6 +222,9 @@
 					};
 					19B0A50F2110233100D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					60819F412160911700DE4A7B = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
@@ -185,6 +243,7 @@
 			targets = (
 				19B0A4F12110231900D2F73A /* NumiOS */,
 				19B0A50F2110233100D2F73A /* NumiOSDemo */,
+				60819F412160911700DE4A7B /* NumiOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +263,13 @@
 				19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */,
 				19B0A51A2110233200D2F73A /* Assets.xcassets in Resources */,
 				19B0A5182110233100D2F73A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60819F402160911700DE4A7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +294,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		60819F3E2160911700DE4A7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60819F452160911800DE4A7B /* NumiOSTests.swift in Sources */,
+				60819F4E2160912F00DE4A7B /* ArrayExtensionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60819F492160911800DE4A7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 19B0A4F12110231900D2F73A /* NumiOS */;
+			targetProxy = 60819F482160911800DE4A7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19B0A5162110233100D2F73A /* Main.storyboard */ = {
@@ -461,6 +544,45 @@
 			};
 			name = Release;
 		};
+		60819F4B2160911800DE4A7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NumiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tokijh.NumiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60819F4C2160911800DE4A7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NumiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tokijh.NumiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -487,6 +609,15 @@
 			buildConfigurations = (
 				19B0A5362110233200D2F73A /* Debug */,
 				19B0A5372110233200D2F73A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60819F4A2160911800DE4A7B /* Build configuration list for PBXNativeTarget "NumiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60819F4B2160911800DE4A7B /* Debug */,
+				60819F4C2160911800DE4A7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
