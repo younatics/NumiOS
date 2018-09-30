@@ -102,7 +102,7 @@ public class NumiOS: NSObject {
 }
 
 extension NumiOS {
-    private class func validateDimension(array: Array<Any>) -> Bool {
+    public class func validateDimension(array: Array<Any>) -> Bool {
         var elementArray = Array<Any>()
         
         for (index, element) in array.enumerated() {
