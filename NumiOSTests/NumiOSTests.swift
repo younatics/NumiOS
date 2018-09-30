@@ -10,20 +10,52 @@ import XCTest
 import NumiOS
 
 class NumiOSTests: XCTestCase {
+    func testShape() {
+        var input: [Any] = [1,2,3,4]
+        var output = NumiOS.shape(input)
+        var answer = [4]
+        XCTAssertEqual(output, answer)
+        
+        input = [
+            [1,2,3,4,5,6],
+            [1,2,3,4,5,6],
+            [1,2,3]]
+        output = NumiOS.shape(input)
+        answer = [3,6]
+        XCTAssertEqual(output, answer)
+    }
+    
+    func testZeros() {
+//        var testCase: [Any] = [1,2]
+//        var result = NumiOS.zeros(testCase)
+//        XCTAssertEqual(result, [
+//            [0,0]
+//            ] as [Any])
+        
+//        testCase = [
+//            [1,2,3,4,5,6],
+//            [1,2,3,4,5,6],
+//            [1,2,3],
+//        ]
+//        result = NumiOS.shape(testCase)
+//        XCTAssertEqual(result, [3,6])
+    }
+
+
     func testOneHotEncoding() {
-        var testCase: [Int] = [0,1,2,3,4]
-        var result: [[Int]] = NumiOS.oneHotEncoding(testCase)
-        XCTAssertEqual(result, [
+        var input: [Int] = [0,1,2,3,4]
+        var output = NumiOS.oneHotEncoding(input)
+        var answer = [
             [1,0,0,0,0],
             [0,1,0,0,0],
             [0,0,1,0,0],
             [0,0,0,1,0],
-            [0,0,0,0,1],
-        ])
-        
-        testCase = [0,0,0,0,1,1,2,3,0,6,4]
-        result = NumiOS.oneHotEncoding(testCase)
-        XCTAssertEqual(result, [
+            [0,0,0,0,1]]
+        XCTAssertEqual(output, answer)
+
+        input = [0,0,0,0,1,1,2,3,0,6,4]
+        output = NumiOS.oneHotEncoding(input)
+        answer = [
             [1,0,0,0,0,0,0],
             [1,0,0,0,0,0,0],
             [1,0,0,0,0,0,0],
@@ -34,50 +66,36 @@ class NumiOSTests: XCTestCase {
             [0,0,0,1,0,0,0],
             [1,0,0,0,0,0,0],
             [0,0,0,0,0,0,1],
-            [0,0,0,0,1,0,0]
-        ])
-    }
-    
-    func testShape() {
-        var testCase: [Any] = [1,2,3,4]
-        var result = NumiOS.shape(testCase)
-        XCTAssertEqual(result, [4])
-        
-        testCase = [
-            [1,2,3,4,5,6],
-            [1,2,3,4,5,6],
-            [1,2,3],
-        ]
-        result = NumiOS.shape(testCase)
-        XCTAssertEqual(result, [3,6])
+            [0,0,0,0,1,0,0]]
+        XCTAssertEqual(output, answer)
     }
     
     func testConcatenate() {
         var array0: [[Int]] = [[0,1,2,3]]
         var array1: [[Int]] = [[0,1,2,3]]
-        var result = NumiOS.concatenate(array0, array1)
-        XCTAssertEqual(result, [
-            [0,1,2,3,0,1,2,3]
-        ])
+        var output = NumiOS.concatenate(array0, array1)
+        var answer = [
+            [0,1,2,3,0,1,2,3]]
+        XCTAssertEqual(output, answer)
         
         array0 = [[0,1,2]]
         array1 = [[4,5,6,7]]
         let array2 = [[10,11,12,13]]
-        result = NumiOS.concatenate(array0, array1, array2)
-        XCTAssertEqual(result, [
-            [0,1,2,4,5,6,7,10,11,12,13]
-        ])
+        output = NumiOS.concatenate(array0, array1, array2)
+        answer = [
+            [0,1,2,4,5,6,7,10,11,12,13]]
+        XCTAssertEqual(output, answer)
     }
     
     func testTranspose() {
-        let testCase: [[Int]] = [[0,1,2,3]]
-        let result: [[Int]] = NumiOS.transpose(testCase)
-        XCTAssertEqual(result, [
+        let input: [[Int]] = [[0,1,2,3]]
+        let output: [[Int]] = NumiOS.transpose(input)
+        let answer = [
             [0],
             [1],
             [2],
-            [3],
-        ])
+            [3]]
+        XCTAssertEqual(output, answer)
     }
     
     func testReshape() {
@@ -85,22 +103,22 @@ class NumiOSTests: XCTestCase {
             [0,1,2,3,4,5,6,7,8,9,10,11]
         ]
         var shape: [Int] = [3,4]
-        var result = NumiOS.reshape(array, shape: shape)
-        XCTAssertEqual(result, [
+        var output = NumiOS.reshape(array, shape: shape)
+        var answer = [
             [0,1,2,3],
             [4,5,6,7],
-            [8,9,10,11],
-        ])
+            [8,9,10,11]]
+        XCTAssertEqual(output, answer)
         
         array = [
             [0,1,2,3,4,5]
         ]
         shape = [3,4]
-        result = NumiOS.reshape(array, shape: shape)
-        XCTAssertEqual(result, [
+        output = NumiOS.reshape(array, shape: shape)
+        answer = [
             [0,1,2,3],
             [4,5,0,0],
-            [0,0,0,0],
-        ])
+            [0,0,0,0]]
+        XCTAssertEqual(output, answer)
     }
 }

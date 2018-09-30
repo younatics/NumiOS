@@ -23,9 +23,22 @@ public class NumiOS: NSObject {
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
     public class func zeros(_ array:Array<Any>) -> Array<Any> {
+        let dimension = array.shape().count
+        if dimension > 2 {
+            fatalError("zeros supports up to two dimensions")
+        }
         
+        var returnArray = Array<Any>()
+        if dimension == 1 {
+            returnArray = Array(repeating: 0, count: array.count)
+        } else if dimension == 2 {
+            guard let first = array.first else {
+                fatalError("first object should be exist")
+            }
+            returnArray = Array(repeating: Array(repeating: 0, count: array.count), count: (first as AnyObject).count)
+        }
         
-        return Array<Any>()
+        return returnArray
     }
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
