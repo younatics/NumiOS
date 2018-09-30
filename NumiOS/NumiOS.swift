@@ -9,6 +9,7 @@
 import Foundation
 
 public class NumiOS: NSObject {
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html
     public class func shape(_ array:Array<Any>) -> [Int] {
         var array = array
         var shape = [array.count]
@@ -18,6 +19,13 @@ public class NumiOS: NSObject {
             array = element
         }
         return shape
+    }
+
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+    public class func zeros(_ array:Array<Any>) -> Array<Any> {
+        
+        
+        return Array<Any>()
     }
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {

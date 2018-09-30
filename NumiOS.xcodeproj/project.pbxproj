@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1917F1A0216089F200958D44 /* NumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F19F216089F200958D44 /* NumExtension.swift */; };
+		1917F1AA2160948300958D44 /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		1917F1B22160979700958D44 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */; };
+		1917F1B32160979B00958D44 /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F442160911800DE4A7B /* NumiOSTests.swift */; };
 		19B0A5032110231900D2F73A /* NumiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19B0A4F52110231900D2F73A /* NumiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19B0A5132110233100D2F73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5122110233100D2F73A /* AppDelegate.swift */; };
 		19B0A5152110233100D2F73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5142110233100D2F73A /* ViewController.swift */; };
@@ -16,13 +19,10 @@
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
 		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
 		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
-		60819F452160911800DE4A7B /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F442160911800DE4A7B /* NumiOSTests.swift */; };
-		60819F472160911800DE4A7B /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
-		60819F4E2160912F00DE4A7B /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		60819F482160911800DE4A7B /* PBXContainerItemProxy */ = {
+		1917F1AB2160948300958D44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 19B0A4E92110231900D2F73A /* Project object */;
 			proxyType = 1;
@@ -33,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		1917F19F216089F200958D44 /* NumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumExtension.swift; sourceTree = "<group>"; };
+		1917F1A52160948300958D44 /* NumiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A4F22110231900D2F73A /* NumiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NumiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A4F52110231900D2F73A /* NumiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumiOS.h; sourceTree = "<group>"; };
 		19B0A4F62110231900D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,13 +45,20 @@
 		19B0A51C2110233200D2F73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B0A51E2110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
-		60819F422160911700DE4A7B /* NumiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60819F442160911800DE4A7B /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
 		60819F462160911800DE4A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1917F1A22160948300958D44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1917F1AA2160948300958D44 /* NumiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B0A4EE2110231900D2F73A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,14 +74,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60819F3F2160911700DE4A7B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60819F472160911800DE4A7B /* NumiOS.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				19B0A4F42110231900D2F73A /* NumiOS */,
-				19B0A5112110233100D2F73A /* NumiOSDemo */,
 				60819F432160911800DE4A7B /* NumiOSTests */,
+				19B0A5112110233100D2F73A /* NumiOSDemo */,
 				19B0A4F32110231900D2F73A /* Products */,
 				19B0A5402110290200D2F73A /* Frameworks */,
 			);
@@ -93,7 +93,7 @@
 			children = (
 				19B0A4F22110231900D2F73A /* NumiOS.framework */,
 				19B0A5102110233100D2F73A /* NumiOSDemo.app */,
-				60819F422160911700DE4A7B /* NumiOSTests.xctest */,
+				1917F1A52160948300958D44 /* NumiOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +153,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1917F1A42160948300958D44 /* NumiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1917F1AD2160948300958D44 /* Build configuration list for PBXNativeTarget "NumiOSTests" */;
+			buildPhases = (
+				1917F1A12160948300958D44 /* Sources */,
+				1917F1A22160948300958D44 /* Frameworks */,
+				1917F1A32160948300958D44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1917F1AC2160948300958D44 /* PBXTargetDependency */,
+			);
+			name = NumiOSTests;
+			productName = NumiOSTests;
+			productReference = 1917F1A52160948300958D44 /* NumiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		19B0A4F12110231900D2F73A /* NumiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19B0A5062110231900D2F73A /* Build configuration list for PBXNativeTarget "NumiOS" */;
@@ -188,24 +206,6 @@
 			productReference = 19B0A5102110233100D2F73A /* NumiOSDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		60819F412160911700DE4A7B /* NumiOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 60819F4A2160911800DE4A7B /* Build configuration list for PBXNativeTarget "NumiOSTests" */;
-			buildPhases = (
-				60819F3E2160911700DE4A7B /* Sources */,
-				60819F3F2160911700DE4A7B /* Frameworks */,
-				60819F402160911700DE4A7B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				60819F492160911800DE4A7B /* PBXTargetDependency */,
-			);
-			name = NumiOSTests;
-			productName = NumiOSTests;
-			productReference = 60819F422160911700DE4A7B /* NumiOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,15 +216,15 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Seungyoun Yi";
 				TargetAttributes = {
+					1917F1A42160948300958D44 = {
+						CreatedOnToolsVersion = 10.0;
+					};
 					19B0A4F12110231900D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
 					};
 					19B0A50F2110233100D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
-					};
-					60819F412160911700DE4A7B = {
-						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
@@ -242,13 +242,20 @@
 			projectRoot = "";
 			targets = (
 				19B0A4F12110231900D2F73A /* NumiOS */,
+				1917F1A42160948300958D44 /* NumiOSTests */,
 				19B0A50F2110233100D2F73A /* NumiOSDemo */,
-				60819F412160911700DE4A7B /* NumiOSTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1917F1A32160948300958D44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B0A4F02110231900D2F73A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,16 +273,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60819F402160911700DE4A7B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1917F1A12160948300958D44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1917F1B32160979B00958D44 /* NumiOSTests.swift in Sources */,
+				1917F1B22160979700958D44 /* ArrayExtensionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		19B0A4ED2110231900D2F73A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,22 +303,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		60819F3E2160911700DE4A7B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				60819F452160911800DE4A7B /* NumiOSTests.swift in Sources */,
-				60819F4E2160912F00DE4A7B /* ArrayExtensionsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		60819F492160911800DE4A7B /* PBXTargetDependency */ = {
+		1917F1AC2160948300958D44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 19B0A4F12110231900D2F73A /* NumiOS */;
-			targetProxy = 60819F482160911800DE4A7B /* PBXContainerItemProxy */;
+			targetProxy = 1917F1AB2160948300958D44 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -333,6 +333,47 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1917F1AE2160948300958D44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4G7K3CN2JU;
+				INFOPLIST_FILE = NumiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1917F1AF2160948300958D44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4G7K3CN2JU;
+				INFOPLIST_FILE = NumiOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		19B0A5042110231900D2F73A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -544,48 +585,18 @@
 			};
 			name = Release;
 		};
-		60819F4B2160911800DE4A7B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NumiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tokijh.NumiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		60819F4C2160911800DE4A7B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = NumiOSTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tokijh.NumiOSTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1917F1AD2160948300958D44 /* Build configuration list for PBXNativeTarget "NumiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1917F1AE2160948300958D44 /* Debug */,
+				1917F1AF2160948300958D44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		19B0A4EC2110231900D2F73A /* Build configuration list for PBXProject "NumiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -609,15 +620,6 @@
 			buildConfigurations = (
 				19B0A5362110233200D2F73A /* Debug */,
 				19B0A5372110233200D2F73A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		60819F4A2160911800DE4A7B /* Build configuration list for PBXNativeTarget "NumiOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				60819F4B2160911800DE4A7B /* Debug */,
-				60819F4C2160911800DE4A7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
