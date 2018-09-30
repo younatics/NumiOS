@@ -11,20 +11,19 @@ import Foundation
 extension Array {
     /// Get shape of array, need to check matrix validation
     public func shape() -> [Int] {
-        var array = self as Array<AnyObject>
+        var array = self as Array<Any>
         var shape = [array.count]
         
-        while let element = array.first as? Array<AnyObject> {
+        while let element = array.first as? Array<Any> {
             shape.append(element.count)
             array = element
         }
         return shape
     }
-    
 }
 
 public class NumiOS: NSObject {
-    public class func shape(_ array:Array<AnyObject>) -> [Int] {
+    public class func shape(_ array:Array<Any>) -> [Int] {
         return array.shape()
     }
 
