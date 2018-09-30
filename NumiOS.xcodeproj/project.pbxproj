@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1917F1A0216089F200958D44 /* NumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F19F216089F200958D44 /* NumExtension.swift */; };
 		1917F1AA2160948300958D44 /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
-		1917F1B22160979700958D44 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */; };
 		1917F1B32160979B00958D44 /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F442160911800DE4A7B /* NumiOSTests.swift */; };
 		19B0A5032110231900D2F73A /* NumiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19B0A4F52110231900D2F73A /* NumiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19B0A5132110233100D2F73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5122110233100D2F73A /* AppDelegate.swift */; };
@@ -47,7 +46,6 @@
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
 		60819F442160911800DE4A7B /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
 		60819F462160911800DE4A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				60819F442160911800DE4A7B /* NumiOSTests.swift */,
-				60819F4D2160912F00DE4A7B /* ArrayExtensionsTests.swift */,
 				60819F462160911800DE4A7B /* Info.plist */,
 			);
 			path = NumiOSTests;
@@ -281,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1917F1B32160979B00958D44 /* NumiOSTests.swift in Sources */,
-				1917F1B22160979700958D44 /* ArrayExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
