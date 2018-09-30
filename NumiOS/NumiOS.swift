@@ -8,10 +8,9 @@
 
 import Foundation
 
-extension Array {
-    /// Get shape of array, need to check matrix validation
-    public func shape() -> [Int] {
-        var array = self as Array<Any>
+public class NumiOS: NSObject {
+    public class func shape(_ array:Array<Any>) -> [Int] {
+        var array = array
         var shape = [array.count]
         
         while let element = array.first as? Array<Any> {
@@ -19,12 +18,6 @@ extension Array {
             array = element
         }
         return shape
-    }
-}
-
-public class NumiOS: NSObject {
-    public class func shape(_ array:Array<Any>) -> [Int] {
-        return array.shape()
     }
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
@@ -90,13 +83,4 @@ public class NumiOS: NSObject {
         
         return Array(returnArray) as! [[T]]
     }
-    
-    public class func shape<T: Numeric>(_ array: [[T]]) -> (row: Int, column: Int) {
-        let column = array.count
-        guard let row = array.first?.count else {
-            fatalError("Should not be nil")
-        }
-        return (row, column)
-    }
-
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1917F1A0216089F200958D44 /* NumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F19F216089F200958D44 /* NumExtension.swift */; };
 		19B0A5032110231900D2F73A /* NumiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19B0A4F52110231900D2F73A /* NumiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19B0A5132110233100D2F73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5122110233100D2F73A /* AppDelegate.swift */; };
 		19B0A5152110233100D2F73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5142110233100D2F73A /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1917F19F216089F200958D44 /* NumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumExtension.swift; sourceTree = "<group>"; };
 		19B0A4F22110231900D2F73A /* NumiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NumiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A4F52110231900D2F73A /* NumiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumiOS.h; sourceTree = "<group>"; };
 		19B0A4F62110231900D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			children = (
 				19B0A4F52110231900D2F73A /* NumiOS.h */,
 				19B0A53E2110286300D2F73A /* NumiOS.swift */,
+				1917F19F216089F200958D44 /* NumExtension.swift */,
 				19B0A4F62110231900D2F73A /* Info.plist */,
 			);
 			path = NumiOS;
@@ -211,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1917F1A0216089F200958D44 /* NumExtension.swift in Sources */,
 				19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
