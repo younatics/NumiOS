@@ -9,6 +9,22 @@
 import Foundation
 
 public class NumiOS: NSObject {
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.size.html
+    public class func size(_ array: Array<Any>) -> Int {
+        guard validateDimension(array: array) else {
+            fatalError("Only support full dimensional matrix")
+        }
+        var result: Int = 0
+        array.forEach { element in
+            if let e_array = element as? Array<Any> {
+                result += size(e_array)
+            } else {
+                result += 1
+            }
+        }
+        return result
+    }
+    
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html
     public class func shape(_ array:Array<Any>) -> [Int] {
         if !validateDimension(array: array) {
