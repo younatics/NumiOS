@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19B0A4FC2110231900D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		1917F1A0216089F200958D44 /* NumExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F19F216089F200958D44 /* NumExtension.swift */; };
 		19B0A5032110231900D2F73A /* NumiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 19B0A4F52110231900D2F73A /* NumiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19B0A5132110233100D2F73A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5122110233100D2F73A /* AppDelegate.swift */; };
 		19B0A5152110233100D2F73A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A5142110233100D2F73A /* ViewController.swift */; };
@@ -20,21 +20,11 @@
 		60819F2E21608D4300DE4A7B /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F2D21608D4300DE4A7B /* ArrayExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		19B0A4FD2110231900D2F73A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19B0A4E92110231900D2F73A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19B0A4F12110231900D2F73A;
-			remoteInfo = NumiOS;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		1917F19F216089F200958D44 /* NumExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumExtension.swift; sourceTree = "<group>"; };
 		19B0A4F22110231900D2F73A /* NumiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NumiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A4F52110231900D2F73A /* NumiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NumiOS.h; sourceTree = "<group>"; };
 		19B0A4F62110231900D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19B0A4FB2110231900D2F73A /* NumiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A5102110233100D2F73A /* NumiOSDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NumiOSDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A5122110233100D2F73A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19B0A5142110233100D2F73A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,14 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A4F82110231900D2F73A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				19B0A4FC2110231900D2F73A /* NumiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				19B0A4F22110231900D2F73A /* NumiOS.framework */,
-				19B0A4FB2110231900D2F73A /* NumiOSTests.xctest */,
 				19B0A5102110233100D2F73A /* NumiOSDemo.app */,
 			);
 			name = Products;
@@ -101,6 +82,7 @@
 			children = (
 				19B0A4F52110231900D2F73A /* NumiOS.h */,
 				19B0A53E2110286300D2F73A /* NumiOS.swift */,
+				1917F19F216089F200958D44 /* NumExtension.swift */,
 				19B0A4F62110231900D2F73A /* Info.plist */,
 			);
 			path = NumiOS;
@@ -168,24 +150,6 @@
 			productReference = 19B0A4F22110231900D2F73A /* NumiOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		19B0A4FA2110231900D2F73A /* NumiOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19B0A5092110231900D2F73A /* Build configuration list for PBXNativeTarget "NumiOSTests" */;
-			buildPhases = (
-				19B0A4F72110231900D2F73A /* Sources */,
-				19B0A4F82110231900D2F73A /* Frameworks */,
-				19B0A4F92110231900D2F73A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19B0A4FE2110231900D2F73A /* PBXTargetDependency */,
-			);
-			name = NumiOSTests;
-			productName = NumiOSTests;
-			productReference = 19B0A4FB2110231900D2F73A /* NumiOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		19B0A50F2110233100D2F73A /* NumiOSDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 19B0A5352110233200D2F73A /* Build configuration list for PBXNativeTarget "NumiOSDemo" */;
@@ -240,7 +204,6 @@
 			projectRoot = "";
 			targets = (
 				19B0A4F12110231900D2F73A /* NumiOS */,
-				19B0A4FA2110231900D2F73A /* NumiOSTests */,
 				19B0A50F2110233100D2F73A /* NumiOSDemo */,
 			);
 		};
@@ -248,13 +211,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		19B0A4F02110231900D2F73A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A4F92110231900D2F73A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1917F1A0216089F200958D44 /* NumExtension.swift in Sources */,
 				19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		19B0A4FE2110231900D2F73A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19B0A4F12110231900D2F73A /* NumiOS */;
-			targetProxy = 19B0A4FD2110231900D2F73A /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		19B0A5162110233100D2F73A /* Main.storyboard */ = {
@@ -599,15 +548,6 @@
 			buildConfigurations = (
 				19B0A5072110231900D2F73A /* Debug */,
 				19B0A5082110231900D2F73A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		19B0A5092110231900D2F73A /* Build configuration list for PBXNativeTarget "NumiOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19B0A50A2110231900D2F73A /* Debug */,
-				19B0A50B2110231900D2F73A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

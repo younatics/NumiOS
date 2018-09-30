@@ -8,29 +8,21 @@
 
 import Foundation
 
-extension Array {
-    /// Get shape of array, need to check matrix validation
-    public func shape() -> [Int] {
-        var array = self as Array<AnyObject>
+public class NumiOS: NSObject {
+    public class func shape(_ array:Array<Any>) -> [Int] {
+        var array = array
         var shape = [array.count]
         
-        while let element = array.first as? Array<AnyObject> {
+        while let element = array.first as? Array<Any> {
             shape.append(element.count)
             array = element
         }
         return shape
     }
-    
-}
-
-public class NumiOS: NSObject {
-    public class func shape(_ array:Array<AnyObject>) -> [Int] {
-        return array.shape()
-    }
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
         var max = max
-        guard let calculatedMax = array.max() as? Int else { fatalError("Max value shoul be exist")}
+        guard let calculatedMax = array.max() as? Int else { fatalError("Max value should be exist")}
         
         if calculatedMax + 1 > max {
             max = calculatedMax + 1
@@ -48,7 +40,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
+    public class func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
         var returnArray = [[T]]()
         
         for array in arrays {
@@ -65,7 +57,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
+    public class func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
         let transposedArray = array[0].indices.map { col in
             array.indices.map { row in
                 array[row][col]
@@ -74,7 +66,7 @@ public class NumiOS: NSObject {
         return transposedArray
     }
     
-    public func reshape<T: Numeric>(_ array:[[T]], shape: [Int]) -> [[T]] {
+    public class func reshape<T: Numeric>(_ array:[[T]], shape: [Int]) -> [[T]] {
         var count = 0
         if shape.count != 2 {
             fatalError("Shape only support second dimention")
@@ -91,13 +83,4 @@ public class NumiOS: NSObject {
         
         return Array(returnArray) as! [[T]]
     }
-    
-    public func shape<T: Numeric>(_ array: [[T]]) -> (row: Int, column: Int) {
-        let column = array.count
-        guard let row = array.first?.count else {
-            fatalError("Should not be nil")
-        }
-        return (row, column)
-    }
-
 }

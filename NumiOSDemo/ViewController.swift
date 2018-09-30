@@ -16,10 +16,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let array = [[[1,2],[1,3]]]
-        let array2 = [[0.0,1.0],[2.0,3.0]]
+        let array2 = [[[[0.0,1.0],[2.0,3.0]]]]
         let array3 = [0,1,2,3,4]
         
-        print(NumiOS.oneHotEncoding(array3))
+//        print(NumiOS.oneHotEncoding(array3))
+        print(NumiOS.shape(array))
+        print(NumiOS.shape(array2))
+        print(NumiOS.shape(array3))
         printTextView.text =
         """
         input array: \(array)
