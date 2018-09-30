@@ -26,20 +26,6 @@
 			remoteGlobalIDString = 19B0A4F12110231900D2F73A;
 			remoteInfo = NumiOS;
 		};
-		19B0A5242110233200D2F73A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19B0A4E92110231900D2F73A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19B0A50F2110233100D2F73A;
-			remoteInfo = NumiOSDemo;
-		};
-		19B0A52F2110233200D2F73A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 19B0A4E92110231900D2F73A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 19B0A50F2110233100D2F73A;
-			remoteInfo = NumiOSDemo;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +40,6 @@
 		19B0A5192110233200D2F73A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19B0A51C2110233200D2F73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B0A51E2110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		19B0A5232110233200D2F73A /* NumiOSDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		19B0A52E2110233200D2F73A /* NumiOSDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NumiOSDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,20 +67,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19B0A5202110233200D2F73A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A52B2110233200D2F73A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -116,8 +86,6 @@
 				19B0A4F22110231900D2F73A /* NumiOS.framework */,
 				19B0A4FB2110231900D2F73A /* NumiOSTests.xctest */,
 				19B0A5102110233100D2F73A /* NumiOSDemo.app */,
-				19B0A5232110233200D2F73A /* NumiOSDemoTests.xctest */,
-				19B0A52E2110233200D2F73A /* NumiOSDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,42 +187,6 @@
 			productReference = 19B0A5102110233100D2F73A /* NumiOSDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		19B0A5222110233200D2F73A /* NumiOSDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19B0A5382110233200D2F73A /* Build configuration list for PBXNativeTarget "NumiOSDemoTests" */;
-			buildPhases = (
-				19B0A51F2110233200D2F73A /* Sources */,
-				19B0A5202110233200D2F73A /* Frameworks */,
-				19B0A5212110233200D2F73A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19B0A5252110233200D2F73A /* PBXTargetDependency */,
-			);
-			name = NumiOSDemoTests;
-			productName = NumiOSDemoTests;
-			productReference = 19B0A5232110233200D2F73A /* NumiOSDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		19B0A52D2110233200D2F73A /* NumiOSDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 19B0A53B2110233200D2F73A /* Build configuration list for PBXNativeTarget "NumiOSDemoUITests" */;
-			buildPhases = (
-				19B0A52A2110233200D2F73A /* Sources */,
-				19B0A52B2110233200D2F73A /* Frameworks */,
-				19B0A52C2110233200D2F73A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				19B0A5302110233200D2F73A /* PBXTargetDependency */,
-			);
-			name = NumiOSDemoUITests;
-			productName = NumiOSDemoUITests;
-			productReference = 19B0A52E2110233200D2F73A /* NumiOSDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -275,14 +207,6 @@
 					19B0A50F2110233100D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
-					19B0A5222110233200D2F73A = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 19B0A50F2110233100D2F73A;
-					};
-					19B0A52D2110233200D2F73A = {
-						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 19B0A50F2110233100D2F73A;
-					};
 				};
 			};
 			buildConfigurationList = 19B0A4EC2110231900D2F73A /* Build configuration list for PBXProject "NumiOS" */;
@@ -301,8 +225,6 @@
 				19B0A4F12110231900D2F73A /* NumiOS */,
 				19B0A4FA2110231900D2F73A /* NumiOSTests */,
 				19B0A50F2110233100D2F73A /* NumiOSDemo */,
-				19B0A5222110233200D2F73A /* NumiOSDemoTests */,
-				19B0A52D2110233200D2F73A /* NumiOSDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,20 +251,6 @@
 				19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */,
 				19B0A51A2110233200D2F73A /* Assets.xcassets in Resources */,
 				19B0A5182110233100D2F73A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A5212110233200D2F73A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A52C2110233200D2F73A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,20 +281,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		19B0A51F2110233200D2F73A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		19B0A52A2110233200D2F73A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -394,16 +288,6 @@
 			isa = PBXTargetDependency;
 			target = 19B0A4F12110231900D2F73A /* NumiOS */;
 			targetProxy = 19B0A4FD2110231900D2F73A /* PBXContainerItemProxy */;
-		};
-		19B0A5252110233200D2F73A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19B0A50F2110233100D2F73A /* NumiOSDemo */;
-			targetProxy = 19B0A5242110233200D2F73A /* PBXContainerItemProxy */;
-		};
-		19B0A5302110233200D2F73A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 19B0A50F2110233100D2F73A /* NumiOSDemo */;
-			targetProxy = 19B0A52F2110233200D2F73A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -485,6 +369,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -541,6 +426,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -569,7 +455,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -595,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOS;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -651,7 +537,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -669,90 +555,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		19B0A5392110233200D2F73A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumiOSDemo.app/NumiOSDemo";
-			};
-			name = Debug;
-		};
-		19B0A53A2110233200D2F73A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NumiOSDemo.app/NumiOSDemo";
-			};
-			name = Release;
-		};
-		19B0A53C2110233200D2F73A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NumiOSDemo;
-			};
-			name = Debug;
-		};
-		19B0A53D2110233200D2F73A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = NumiOSDemo;
 			};
 			name = Release;
 		};
@@ -791,24 +595,6 @@
 			buildConfigurations = (
 				19B0A5362110233200D2F73A /* Debug */,
 				19B0A5372110233200D2F73A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		19B0A5382110233200D2F73A /* Build configuration list for PBXNativeTarget "NumiOSDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19B0A5392110233200D2F73A /* Debug */,
-				19B0A53A2110233200D2F73A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		19B0A53B2110233200D2F73A /* Build configuration list for PBXNativeTarget "NumiOSDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				19B0A53C2110233200D2F73A /* Debug */,
-				19B0A53D2110233200D2F73A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
