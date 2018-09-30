@@ -17,11 +17,20 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
         
         input = [
-            [1,2,3,4,5,6],
-            [1,2,3,4,5,6],
-            [1,2,3]]
+            [9,8,7,4,5,6],
+            [1,1,3,4,1,6],
+            [3,1,3,3,2,6]]
         output = NumiOS.shape(input)
         answer = [3,6]
+        XCTAssertEqual(output, answer)
+
+        input = [
+            [[0,0,0],
+             [0,0,0]],
+            [[0,0,0],
+             [0,0,0]]]
+        output = NumiOS.shape(input)
+        answer = [2,2,3]
         XCTAssertEqual(output, answer)
     }
     

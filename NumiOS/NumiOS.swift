@@ -11,6 +11,10 @@ import Foundation
 public class NumiOS: NSObject {
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html
     public class func shape(_ array:Array<Any>) -> [Int] {
+        if !validateDimension(array: array) {
+            fatalError("Only support full dimensional matrix")
+        }
+        
         var (array, shape) = (array, [array.count])
         
         while let element = array.first as? Array<Any> {
@@ -32,35 +36,6 @@ public class NumiOS: NSObject {
         return result.array
     }
     
-    private class func multidimentional(shape:[Int], array: Array<Any>, repeating: Any ) -> (shape:[Int], array: Array<Any>, repeating: Any) {
-        var (shape, array) = (shape, array)
-
-        if shape.isEmpty {
-            return (shape, array, repeating)
-        }
-        
-        if shape.first == 0 {
-            fatalError("Shape should not include 0")
-        }
-        
-        if shape.first == 1 {
-            shape.removeFirst()
-            return multidimentional(shape: shape, array: array, repeating: repeating)
-        }
-        
-        if let lastShape = shape.last {
-            if array.isEmpty {
-                array = Array(repeating: repeating, count: lastShape)
-            } else {
-                array = Array(repeating: array, count: lastShape)
-            }
-            shape.removeLast()
-            return multidimentional(shape: shape, array: array, repeating: repeating)
-        } else {
-            return (shape, array, repeating)
-        }
-    }
-
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
         var max = max
         guard let calculatedMax = array.max() as? Int else { fatalError("Max value should be exist")}
@@ -123,5 +98,60 @@ public class NumiOS: NSObject {
         }
         
         return Array(returnArray) as! [[T]]
+    }
+}
+
+extension NumiOS {
+    private class func validateDimension(array: Array<Any>) -> Bool {
+        var elementArray = Array<Any>()
+        
+        for (index, element) in array.enumerated() {
+            guard let element = element as? Array<Any> else {
+                return true
+            }
+
+            if elementArray.isEmpty {
+                elementArray = element
+                continue
+            } else if elementArray.count == element.count {
+                if index == array.endIndex - 1 {
+                    return validateDimension(array: element)
+                } else {
+                    continue
+                }
+            } else {
+                return false
+            }
+        }
+        return false
+    }
+    
+    private class func multidimentional(shape:[Int], array: Array<Any>, repeating: Any ) -> (shape:[Int], array: Array<Any>, repeating: Any) {
+        var (shape, array) = (shape, array)
+        
+        if shape.isEmpty {
+            return (shape, array, repeating)
+        }
+        
+        if shape.first == 0 {
+            fatalError("Shape should not include 0")
+        }
+        
+        if shape.first == 1 {
+            shape.removeFirst()
+            return multidimentional(shape: shape, array: array, repeating: repeating)
+        }
+        
+        if let lastShape = shape.last {
+            if array.isEmpty {
+                array = Array(repeating: repeating, count: lastShape)
+            } else {
+                array = Array(repeating: array, count: lastShape)
+            }
+            shape.removeLast()
+            return multidimentional(shape: shape, array: array, repeating: repeating)
+        } else {
+            return (shape, array, repeating)
+        }
     }
 }
