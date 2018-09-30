@@ -30,7 +30,7 @@ public class NumiOS: NSObject {
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
         var max = max
-        guard let calculatedMax = array.max() as? Int else { fatalError("Max value shoul be exist")}
+        guard let calculatedMax = array.max() as? Int else { fatalError("Max value should be exist")}
         
         if calculatedMax + 1 > max {
             max = calculatedMax + 1
