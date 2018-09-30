@@ -11,8 +11,7 @@ import Foundation
 public class NumiOS: NSObject {
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html
     public class func shape(_ array:Array<Any>) -> [Int] {
-        var array = array
-        var shape = [array.count]
+        var (array, shape) = (array, [array.count])
         
         while let element = array.first as? Array<Any> {
             shape.append(element.count)
@@ -22,23 +21,38 @@ public class NumiOS: NSObject {
     }
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
-    public class func zeros(_ array:Array<Any>) -> Array<Any> {
-        let dimension = array.shape().count
-        if dimension > 2 {
-            fatalError("zeros supports up to two dimensions")
+    public class func zeros(_ array:[Int]) -> Array<Any> {
+        let result = multidimentional(shape: array, array: Array<Any>())
+        return result.array
+    }
+    
+    private class func multidimentional(shape:[Int], array: Array<Any>) -> (shape:[Int], array: Array<Any>) {
+        var (shape, array) = (shape, array)
+
+        if shape.isEmpty {
+            return (shape, array)
         }
         
-        var returnArray = Array<Any>()
-        if dimension == 1 {
-            returnArray = Array(repeating: 0, count: array.count)
-        } else if dimension == 2 {
-            guard let first = array.first else {
-                fatalError("first object should be exist")
+        if shape.first == 0 {
+            fatalError("Shape should not include 0")
+        }
+        
+        if shape.first == 1 {
+            shape.removeFirst()
+            return multidimentional(shape: shape, array: array)
+        }
+        
+        if let lastShape = shape.last {
+            if array.isEmpty {
+                array = Array(repeating: 0, count: lastShape)
+            } else {
+                array = Array(repeating: array, count: lastShape)
             }
-            returnArray = Array(repeating: Array(repeating: 0, count: array.count), count: (first as AnyObject).count)
+            shape.removeLast()
+            return multidimentional(shape: shape, array: array)
+        } else {
+            return (shape, array)
         }
-        
-        return returnArray
     }
 
     public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {

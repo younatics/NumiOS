@@ -23,22 +23,30 @@ class NumiOSTests: XCTestCase {
         output = NumiOS.shape(input)
         answer = [3,6]
         XCTAssertEqual(output, answer)
+        
+        print(NumiOS.shape(
+            [
+            [[0,0,3], [0,0,3]],[[0,0,3], [0,0,3]],[[0,0,3], [0,0,3]]
+            ]
+        ))
     }
     
     func testZeros() {
-//        var testCase: [Any] = [1,2]
-//        var result = NumiOS.zeros(testCase)
-//        XCTAssertEqual(result, [
-//            [0,0]
-//            ] as [Any])
+        var input = [2,2]
+        let output = NumiOS.zeros(input) as! [[Int]]
+        let answer = [
+            [0,0],
+            [0,0]]
+        XCTAssertEqual(output, answer)
         
-//        testCase = [
-//            [1,2,3,4,5,6],
-//            [1,2,3,4,5,6],
-//            [1,2,3],
-//        ]
-//        result = NumiOS.shape(testCase)
-//        XCTAssertEqual(result, [3,6])
+        input = [2,2,3]
+        let output2 = NumiOS.zeros(input) as! [[[Int]]]
+        let answer2 = [
+            [[0,0,0],
+            [0,0,0]],
+            [[0,0,0],
+             [0,0,0]]]
+        XCTAssertEqual(output2, answer2)
     }
 
 
