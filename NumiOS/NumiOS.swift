@@ -47,7 +47,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
+    public class func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
         var returnArray = [[T]]()
         
         for array in arrays {
@@ -64,7 +64,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
+    public class func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
         let transposedArray = array[0].indices.map { col in
             array.indices.map { row in
                 array[row][col]
@@ -73,7 +73,7 @@ public class NumiOS: NSObject {
         return transposedArray
     }
     
-    public func reshape<T: Numeric>(_ array:[[T]], shape: [Int]) -> [[T]] {
+    public class func reshape<T: Numeric>(_ array:[[T]], shape: [Int]) -> [[T]] {
         var count = 0
         if shape.count != 2 {
             fatalError("Shape only support second dimention")
@@ -91,7 +91,7 @@ public class NumiOS: NSObject {
         return Array(returnArray) as! [[T]]
     }
     
-    public func shape<T: Numeric>(_ array: [[T]]) -> (row: Int, column: Int) {
+    public class func shape<T: Numeric>(_ array: [[T]]) -> (row: Int, column: Int) {
         let column = array.count
         guard let row = array.first?.count else {
             fatalError("Should not be nil")
