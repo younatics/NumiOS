@@ -11,7 +11,7 @@ import Foundation
 public class NumiOS: NSObject {
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.shape.html
     public class func shape(_ array:Array<Any>) -> [Int] {
-        if !validateDimension(array: array) {
+        if !validateMatrix(array: array) {
             fatalError("Only support full dimensional matrix")
         }
         
@@ -102,7 +102,7 @@ public class NumiOS: NSObject {
 }
 
 extension NumiOS {
-    public class func validateDimension(array: Array<Any>) -> Bool {
+    public class func validateMatrix(array: Array<Any>) -> Bool {
         var elementArray = Array<Any>()
         
         for (index, element) in array.enumerated() {
@@ -115,7 +115,7 @@ extension NumiOS {
                 continue
             } else if elementArray.count == element.count {
                 if index == array.endIndex - 1 {
-                    return validateDimension(array: element)
+                    return validateMatrix(array: element)
                 } else {
                     continue
                 }
