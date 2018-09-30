@@ -22,15 +22,21 @@ public class NumiOS: NSObject {
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
     public class func zeros(_ array:[Int]) -> Array<Any> {
-        let result = multidimentional(shape: array, array: Array<Any>())
+        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 0)
         return result.array
     }
     
-    private class func multidimentional(shape:[Int], array: Array<Any>) -> (shape:[Int], array: Array<Any>) {
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
+    public class func ones(_ array:[Int]) -> Array<Any> {
+        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 1)
+        return result.array
+    }
+    
+    private class func multidimentional(shape:[Int], array: Array<Any>, repeating: Any ) -> (shape:[Int], array: Array<Any>, repeating: Any) {
         var (shape, array) = (shape, array)
 
         if shape.isEmpty {
-            return (shape, array)
+            return (shape, array, repeating)
         }
         
         if shape.first == 0 {
@@ -39,19 +45,19 @@ public class NumiOS: NSObject {
         
         if shape.first == 1 {
             shape.removeFirst()
-            return multidimentional(shape: shape, array: array)
+            return multidimentional(shape: shape, array: array, repeating: repeating)
         }
         
         if let lastShape = shape.last {
             if array.isEmpty {
-                array = Array(repeating: 0, count: lastShape)
+                array = Array(repeating: repeating, count: lastShape)
             } else {
                 array = Array(repeating: array, count: lastShape)
             }
             shape.removeLast()
-            return multidimentional(shape: shape, array: array)
+            return multidimentional(shape: shape, array: array, repeating: repeating)
         } else {
-            return (shape, array)
+            return (shape, array, repeating)
         }
     }
 

@@ -23,12 +23,6 @@ class NumiOSTests: XCTestCase {
         output = NumiOS.shape(input)
         answer = [3,6]
         XCTAssertEqual(output, answer)
-        
-        print(NumiOS.shape(
-            [
-            [[0,0,3], [0,0,3]],[[0,0,3], [0,0,3]],[[0,0,3], [0,0,3]]
-            ]
-        ))
     }
     
     func testZeros() {
@@ -48,7 +42,24 @@ class NumiOSTests: XCTestCase {
              [0,0,0]]]
         XCTAssertEqual(output2, answer2)
     }
-
+    
+    func testOnes() {
+        var input = [2,2]
+        let output = NumiOS.ones(input) as! [[Int]]
+        let answer = [
+            [1,1],
+            [1,1]]
+        XCTAssertEqual(output, answer)
+        
+        input = [2,2,3]
+        let output2 = NumiOS.ones(input) as! [[[Int]]]
+        let answer2 = [
+            [[1,1,1],
+             [1,1,1]],
+            [[1,1,1],
+             [1,1,1]]]
+        XCTAssertEqual(output2, answer2)
+    }
 
     func testOneHotEncoding() {
         var input: [Int] = [0,1,2,3,4]
