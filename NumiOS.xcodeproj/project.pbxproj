@@ -16,6 +16,8 @@
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
 		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
 		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		60819F2C21607B1C00DE4A7B /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F2B21607B1C00DE4A7B /* NumiOSTests.swift */; };
+		60819F2E21608D4300DE4A7B /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F2D21608D4300DE4A7B /* ArrayExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,9 @@
 		19B0A51C2110233200D2F73A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19B0A51E2110233200D2F73A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
+		60819F2A21607B1C00DE4A7B /* NumiOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NumiOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		60819F2B21607B1C00DE4A7B /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
+		60819F2D21608D4300DE4A7B /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +78,7 @@
 		19B0A4E82110231900D2F73A = {
 			isa = PBXGroup;
 			children = (
+				60819F2921607AFE00DE4A7B /* NumiOSTests */,
 				19B0A4F42110231900D2F73A /* NumiOS */,
 				19B0A5112110233100D2F73A /* NumiOSDemo */,
 				19B0A4F32110231900D2F73A /* Products */,
@@ -118,6 +124,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60819F2921607AFE00DE4A7B /* NumiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				60819F2D21608D4300DE4A7B /* ArrayExtensionsTests.swift */,
+				60819F2B21607B1C00DE4A7B /* NumiOSTests.swift */,
+				60819F2A21607B1C00DE4A7B /* NumiOSTests-Bridging-Header.h */,
+			);
+			path = NumiOSTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +219,7 @@
 					};
 					19B0A4FA2110231900D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					19B0A50F2110233100D2F73A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -269,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60819F2C21607B1C00DE4A7B /* NumiOSTests.swift in Sources */,
+				60819F2E21608D4300DE4A7B /* ArrayExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,9 +509,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -500,6 +519,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NumiOSTests/NumiOSTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -509,9 +530,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G7K3CN2JU;
-				INFOPLIST_FILE = NumiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,6 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.seungyounyi.NumiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NumiOSTests/NumiOSTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
