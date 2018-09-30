@@ -55,7 +55,7 @@ class NumiOSTests: XCTestCase {
     func testConcatenate() {
         var array0: [[Int]] = [[0,1,2,3]]
         var array1: [[Int]] = [[0,1,2,3]]
-        var result = NumiOS().concatenate(array0, array1)
+        var result = NumiOS.concatenate(array0, array1)
         XCTAssertEqual(result, [
             [0,1,2,3,0,1,2,3]
         ])
@@ -63,7 +63,7 @@ class NumiOSTests: XCTestCase {
         array0 = [[0,1,2]]
         array1 = [[4,5,6,7]]
         let array2 = [[10,11,12,13]]
-        result = NumiOS().concatenate(array0, array1, array2)
+        result = NumiOS.concatenate(array0, array1, array2)
         XCTAssertEqual(result, [
             [0,1,2,4,5,6,7,10,11,12,13]
         ])
@@ -71,7 +71,7 @@ class NumiOSTests: XCTestCase {
     
     func testTranspose() {
         let testCase: [[Int]] = [[0,1,2,3]]
-        let result: [[Int]] = NumiOS().transpose(testCase)
+        let result: [[Int]] = NumiOS.transpose(testCase)
         XCTAssertEqual(result, [
             [0],
             [1],
@@ -85,7 +85,7 @@ class NumiOSTests: XCTestCase {
             [0,1,2,3,4,5,6,7,8,9,10,11]
         ]
         var shape: [Int] = [3,4]
-        var result = NumiOS().reshape(array, shape: shape)
+        var result = NumiOS.reshape(array, shape: shape)
         XCTAssertEqual(result, [
             [0,1,2,3],
             [4,5,6,7],
@@ -96,24 +96,11 @@ class NumiOSTests: XCTestCase {
             [0,1,2,3,4,5]
         ]
         shape = [3,4]
-        result = NumiOS().reshape(array, shape: shape)
+        result = NumiOS.reshape(array, shape: shape)
         XCTAssertEqual(result, [
             [0,1,2,3],
             [4,5,0,0],
             [0,0,0,0],
         ])
-    }
-    
-    func testShapeInfo() {
-        var testCase: [[Int]] = [[1,2,3,4]]
-        var result: (row: Int, column: Int) = NumiOS().shape(testCase)
-        XCTAssertEqual(result.row, 4)
-        XCTAssertEqual(result.column, 1)
-        
-        testCase = [[1,2,3,4], [1,2,3,4,5]]
-        result = NumiOS().shape(testCase)
-        // TODO This result should be none
-        // XCTAssertEqual(result.row, 0)
-        XCTAssertEqual(result.column, 2)
     }
 }
