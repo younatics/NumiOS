@@ -118,28 +118,26 @@ public class NumiOS: NSObject {
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
-    public class func mean(_ array: [Any]) -> Double {
+    public class func mean<T: NumericType>(_ array: [Any]) -> T {
         guard validateMatrix(array: array) else {
             fatalError("Only support full dimensional matrix")
         }
-        let result = sum(array)
+        let result: (total: T, size: T) = sum(array)
         return result.total / result.size
     }
     
     /// return sum of elements and size
-    private class func sum(_ array: [Any]) -> (total: Double, size: Double) {
-        var total: Double = 0
-        var index: Double = 0
+    private class func sum<T: NumericType>(_ array: [Any]) -> (total: T, size: T) {
+        var total: T = 0
+        var index: T = 0
         array.forEach { element in
             if let e_array = element as? Array<Any> {
-                let result = sum(e_array)
+                let result: (total: T, size: T) = sum(e_array)
                 total += result.total
                 index += result.size
             } else {
-                if let numeric = element as? NSNumber {
-                    total += Double(numeric)
-                    index += 1
-                }
+                total = total + element
+                index += 1
             }
         }
         return (total, index)
