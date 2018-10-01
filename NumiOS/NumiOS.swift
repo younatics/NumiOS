@@ -53,18 +53,18 @@ public class NumiOS: NSObject {
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
-    public class func eye(_ array:[Int], max: Int = 0) -> [[Int]] {
-        var max = max
+    public class func eye(_ array:[Int], classes: Int = 0) -> [[Int]] {
+        var classes = classes
         guard let calculatedMax = array.max() else { fatalError("Max value should be exist")}
         
-        if calculatedMax + 1 > max {
-            max = calculatedMax + 1
+        if calculatedMax + 1 > classes {
+            classes = calculatedMax + 1
         }
         
-        var returnArray = Array(repeating: Array(repeating: 0, count: max), count: array.count)
+        var returnArray = Array(repeating: Array(repeating: 0, count: classes), count: array.count)
 
         for (index, value) in array.enumerated() {
-            if value <= max {
+            if value <= classes {
                 returnArray[index][value] = 1
             } else {
                 fatalError("One hot encoding value should not be bigger than max length")
