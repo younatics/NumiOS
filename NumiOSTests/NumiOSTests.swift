@@ -210,6 +210,68 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
     }
     
+    func testMean() {
+        var input: [Any] = [0, 1, 2, 3]
+        var outputInt: Int = NumiOS.mean(input)
+        var answerInt: Int = 1
+        var outputFloat: Float = NumiOS.mean(input)
+        var answerFloat: Float = 1.5
+        var outputDouble: Double = NumiOS.mean(input)
+        var answerDouble: Double = 1.5
+        XCTAssertEqual(outputInt, answerInt)
+        XCTAssertEqual(outputFloat, answerFloat)
+        XCTAssertEqual(outputDouble, answerDouble)
+        
+        input = [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]
+        outputInt = NumiOS.mean(input)
+        answerInt = 3
+        outputFloat = NumiOS.mean(input)
+        answerFloat = 3.0
+        outputDouble = NumiOS.mean(input)
+        answerDouble = 3.0
+        XCTAssertEqual(outputInt, answerInt)
+        XCTAssertEqual(outputFloat, answerFloat)
+        XCTAssertEqual(outputDouble, answerDouble)
+        
+        input = [[nil, 2, 3, 4, 5], [1, 2, 3, 4, nil]]
+        outputInt = NumiOS.mean(input)
+        answerInt = 3
+        outputFloat = NumiOS.mean(input)
+        answerFloat = 3.0
+        outputDouble = NumiOS.mean(input)
+        answerDouble = 3.0
+        XCTAssertEqual(outputInt, answerInt)
+        XCTAssertEqual(outputFloat, answerFloat)
+        XCTAssertEqual(outputDouble, answerDouble)
+        
+        input = [[nil, 6, 8, 10, 0, 0, 0, 0], [ 6, 6, 8, 0, 0, 0, 0, nil]]
+        outputInt = NumiOS.mean(input)
+        answerInt = 3
+        outputFloat = NumiOS.mean(input)
+        answerFloat = 3.142857
+        outputDouble = NumiOS.mean(input)
+        answerDouble = 3.142857142857143
+        XCTAssertEqual(outputInt, answerInt)
+        XCTAssertEqual(outputFloat, answerFloat)
+        XCTAssertEqual(outputDouble, answerDouble)
+        
+        input = [[[ 0.95979688,  0.08343238,  0.33695294,  0.78382111],
+                  [ 0.36685429,  0.86955043,  0.88227388,  0.79091495],
+                  [ 0.63368575,  0.5130265 ,  0.0619997 ,  0.6573761 ]],
+                 [[ 0.45284015,  0.08635302,  0.94612675,  0.33949862],
+                  [ 0.17685103,  0.26249988,  0.44127751,  0.3318031 ],
+                  [ 0.18581007,  0.66045853,  0.29541049,  0.33626342]]]
+        outputInt = NumiOS.mean(input)
+        answerInt = 0
+        outputFloat = NumiOS.mean(input)
+        answerFloat = 0.47728658
+        outputDouble = NumiOS.mean(input)
+        answerDouble = 0.47728656166666666
+        XCTAssertEqual(outputInt, answerInt)
+        XCTAssertEqual(outputFloat, answerFloat)
+        XCTAssertEqual(outputDouble, answerDouble)
+    }
+    
     func testSum() {
         var input: [Any] = [0, 1, 2, 3]
         var outputInt: (total: Int, size: Int) = NumiOS.sum(input)

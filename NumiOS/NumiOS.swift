@@ -117,6 +117,26 @@ public class NumiOS: NSObject {
         return Array(returnArray) as! [[T]]
     }
     
+    public class func mean(_ array: Array<Any>) -> Int {
+        return mean(array, initialValue: 0, castToType: castToInt)
+    }
+    
+    public class func mean(_ array: Array<Any>) -> Float {
+        return mean(array, initialValue: 0, castToType: castToFloat)
+    }
+    
+    public class func mean(_ array: Array<Any>) -> Double {
+        return mean(array, initialValue: 0, castToType: castToDouble)
+    }
+    
+    public class func mean<T: Numeric & Dividable>(_ array: Array<Any>, initialValue: T, castToType: (Any) -> T?) -> T {
+        guard validateMatrix(array: array) else {
+            fatalError("Only support full dimensional matrix")
+        }
+        let result: (total: T, size: T) = sum(array, initialValue: initialValue, castToType: castToType)
+        return result.total / result.size
+    }
+    
     public class func sum(_ array: Array<Any>) -> (total: Int, size: Int) {
         return sum(array, initialValue: 0, castToType: castToInt)
     }
