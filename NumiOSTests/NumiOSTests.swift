@@ -209,4 +209,47 @@ class NumiOSTests: XCTestCase {
         answer = 12
         XCTAssertEqual(output, answer)
     }
+    
+    func testSum() {
+        var input: [Any] = [0, 1, 2, 3]
+        var outputInt: (total: Int, size: Int) = NumiOS.sum(input)
+        var answerInt: (total: Int, size: Int) = (6, 4)
+        XCTAssertEqual(outputInt.total, answerInt.total)
+        XCTAssertEqual(outputInt.size, answerInt.size)
+        
+        
+        input = [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]]
+        outputInt = NumiOS.sum(input)
+        answerInt = (30, 10)
+        XCTAssertEqual(outputInt.total, answerInt.total)
+        XCTAssertEqual(outputInt.size, answerInt.size)
+        
+        input = [[nil, 2, 3, 4, 5], [1, 2, 3, 4, nil]]
+        outputInt = NumiOS.sum(input)
+        answerInt = (24, 8)
+        XCTAssertEqual(outputInt.total, answerInt.total)
+        XCTAssertEqual(outputInt.size, answerInt.size)
+        
+        input = [[[ 0.95979688,  0.08343238,  0.33695294,  0.78382111],
+                  [ 0.36685429,  0.86955043,  0.88227388,  0.79091495],
+                  [ 0.63368575,  0.5130265 ,  0.0619997 ,  0.6573761 ]],
+                [[ 0.45284015,  0.08635302,  0.94612675,  0.33949862],
+                 [ 0.17685103,  0.26249988,  0.44127751,  0.3318031 ],
+                 [ 0.18581007,  0.66045853,  0.29541049,  0.33626342]]]
+        let outputFloat: (total: Float, size: Float) = NumiOS.sum(input)
+        let answerFloat: (total: Float, size: Float) = (11.454878, 24)
+        XCTAssertEqual(outputFloat.total, answerFloat.total)
+        XCTAssertEqual(outputFloat.size, answerFloat.size)
+        
+        input = [[[ 0.95979688,  0.08343238,  0.33695294,  0.78382111],
+                  [ 0.36685429,  0.86955043,  0.88227388,  0.79091495],
+                  [ 0.63368575,  0.5130265 ,  0.0619997 ,  0.6573761 ]],
+                [[ 0.45284015,  0.08635302,  0.94612675,  0.33949862],
+                 [ 0.17685103,  0.26249988,  0.44127751,  0.3318031 ],
+                 [ 0.18581007,  0.66045853,  0.29541049,  0.33626342]]]
+        let outputDouble: (total: Double, size: Double) = NumiOS.sum(input)
+        let answerDouble: (total: Double, size: Double) = (11.45487748, 24)
+        XCTAssertEqual(outputDouble.total, answerDouble.total)
+        XCTAssertEqual(outputDouble.size, answerDouble.size)
+    }
 }

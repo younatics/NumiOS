@@ -116,6 +116,35 @@ public class NumiOS: NSObject {
         
         return Array(returnArray) as! [[T]]
     }
+    
+    public class func sum(_ array: Array<Any>) -> (total: Int, size: Int) {
+        return sum(array, initialValue: 0, castToType: castToInt)
+    }
+    
+    public class func sum(_ array: Array<Any>) -> (total: Float, size: Float) {
+        return sum(array, initialValue: 0, castToType: castToFloat)
+    }
+    
+    public class func sum(_ array: Array<Any>) -> (total: Double, size: Double) {
+        return sum(array, initialValue: 0, castToType: castToDouble)
+    }
+    
+    public class func sum<T: Numeric>(_ array: Array<Any>, initialValue: T, castToType: (Any) -> T?) -> (total: T, size: T) {
+        return array.reduce((initialValue, initialValue)) { (result, element) -> (T, T) in
+            var result = result
+            if let e_array = element as? Array<Any> {
+                let (total, size) = sum(e_array, initialValue: initialValue, castToType: castToType)
+                result.0 += total
+                result.1 += size
+            } else {
+                if let e_t = castToType(element) {
+                    result.0 += e_t
+                    result.1 += 1
+                }
+            }
+            return result
+        }
+    }
 }
 
 extension NumiOS {
