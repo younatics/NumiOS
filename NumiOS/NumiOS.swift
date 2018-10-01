@@ -11,7 +11,7 @@ import Foundation
 public class NumiOS: NSObject {
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.size.html
     public class func size(_ array: Array<Any>) -> Int {
-        guard validateDimension(array: array) else {
+        guard validateMatrix(array: array) else {
             fatalError("Only support full dimensional matrix")
         }
         var result: Int = 0
