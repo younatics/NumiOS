@@ -150,6 +150,32 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
     }
     
+    func testValidateMatrix() {
+        var input: [Any] = [0, 1, 2, 3]
+        var output: Bool = NumiOS.validateMatrix(array: input)
+        var answer = true
+        XCTAssertEqual(output, answer)
+        
+        input = [[0,1],[2,3],[4,5]]
+        output = NumiOS.validateMatrix(array: input)
+        answer = true
+        XCTAssertEqual(output, answer)
+        
+        input = [[[0,1,2],[3,4,5]],[6,7,8]]
+        output = NumiOS.validateMatrix(array: input)
+        answer = false
+        XCTAssertEqual(output, answer)
+        
+        input = [[[0,1,2],[3,4,5]],[[6,7,8]]]
+        output = NumiOS.validateMatrix(array: input)
+        answer = false
+        XCTAssertEqual(output, answer)
+        
+        input = [[[0,1,2],[3,4,5]],[[6,7,8],[9,10,11]]]
+        output = NumiOS.validateMatrix(array: input)
+        answer = true
+    }
+  
     func testSize() {
         var input: [Any] = [0, 1, 2, 3]
         var output: Int = NumiOS.size(input)
