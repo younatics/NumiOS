@@ -174,6 +174,39 @@ class NumiOSTests: XCTestCase {
         input = [[[0,1,2],[3,4,5]],[[6,7,8],[9,10,11]]]
         output = NumiOS.validateMatrix(array: input)
         answer = true
+    }
+  
+    func testSize() {
+        var input: [Any] = [0, 1, 2, 3]
+        var output: Int = NumiOS.size(input)
+        var answer = 4
+        XCTAssertEqual(output, answer)
+        
+        input = [[0,1,2],[3,4,5]]
+        output = NumiOS.size(input)
+        answer = 6
+        XCTAssertEqual(output, answer)
+        
+        input = [[0,1],[2,3],[4,5]]
+        output = NumiOS.size(input)
+        answer = 6
+        XCTAssertEqual(output, answer)
+        
+        // NEED UPDATE : ValidateDimension is fail
+        // input = [[[0,1,2],[3,4,5]],[6,7,8],[[0,1,2],[3,4,5]],[6,7,8]]
+        // output = NumiOS.size(input)
+        // answer = 4
+        // XCTAssertEqual(output, answer)
+        
+        // NEED UPDATE : ValidateDimension is fail
+        // input = [[[0,1,2],[3,4,5]],[[6,7,8]]]
+        // output = NumiOS.size(input)
+        // answer = 2
+        // XCTAssertEqual(output, answer)
+        
+        input = [[[0,1,2],[3,4,5]],[[6,7,8],[9,10,11]]]
+        output = NumiOS.size(input)
+        answer = 12
         XCTAssertEqual(output, answer)
     }
 }
