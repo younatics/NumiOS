@@ -70,9 +70,9 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output2, answer2)
     }
 
-    func testOneHotEncoding() {
+    func testEye() {
         var input: [Int] = [0,1,2,3,4]
-        var output = NumiOS.oneHotEncoding(input)
+        var output = NumiOS.eye(input)
         var answer = [
             [1,0,0,0,0],
             [0,1,0,0,0],
@@ -82,7 +82,7 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
 
         input = [0,0,0,0,1,1,2,3,0,6,4]
-        output = NumiOS.oneHotEncoding(input)
+        output = NumiOS.eye(input)
         answer = [
             [1,0,0,0,0,0,0],
             [1,0,0,0,0,0,0],

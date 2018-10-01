@@ -52,19 +52,20 @@ public class NumiOS: NSObject {
         return result.array
     }
     
-    public class func oneHotEncoding<T: Numeric & Comparable>(_ array:[T], max: Int = 0 , defaultValue: Int = 0, encodingValue: Int = 1) -> [[Int]] {
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
+    public class func eye(_ array:[Int], max: Int = 0) -> [[Int]] {
         var max = max
-        guard let calculatedMax = array.max() as? Int else { fatalError("Max value should be exist")}
+        guard let calculatedMax = array.max() else { fatalError("Max value should be exist")}
         
         if calculatedMax + 1 > max {
             max = calculatedMax + 1
         }
         
-        var returnArray = Array(repeating: Array(repeating: defaultValue, count: max), count: array.count)
+        var returnArray = Array(repeating: Array(repeating: 0, count: max), count: array.count)
 
         for (index, value) in array.enumerated() {
-            if let value = value as? Int, value <= max {
-                returnArray[index][value] = encodingValue
+            if value <= max {
+                returnArray[index][value] = 1
             } else {
                 fatalError("One hot encoding value should not be bigger than max length")
             }
