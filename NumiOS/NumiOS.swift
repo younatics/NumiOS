@@ -90,6 +90,20 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
+    public class func dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
+        guard validateMatrix(array: array) else {
+            fatalError("Only support full dimensional matrix")
+        }
+        return _dimensionsLevel(array) + 1
+    }
+    
+    private class func _dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
+        if let e_array = array.first as? Array<Any> {
+            return 1 + _dimensionsLevel(e_array)
+        }
+        return 0
+    }
+    
     public class func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {
         let transposedArray = array[0].indices.map { col in
             array.indices.map { row in

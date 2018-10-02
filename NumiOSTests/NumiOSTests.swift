@@ -115,6 +115,23 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
     }
     
+    func testDimensionsLevel() {
+        var input: [Any] = [[0,1,2,3],[0,1,2,3]]
+        var output: Int = NumiOS.dimensionsLevel(input)
+        var answer: Int = 2
+        XCTAssertEqual(output, answer)
+        
+        input = [[[0,1,2,3],[0,1,2,3]],[[0,1,2,3],[0,1,2,3]]]
+        output = NumiOS.dimensionsLevel(input)
+        answer = 3
+        XCTAssertEqual(output, answer)
+        
+        input = [[[[1],[2]],[[3],[4]]],[[1],[2]],[[3],[4]]]
+        output = NumiOS.dimensionsLevel(input)
+        answer = 4
+        XCTAssertEqual(output, answer)
+    }
+    
     func testTranspose() {
         let input: [[Int]] = [[0,1,2,3]]
         let output: [[Int]] = NumiOS.transpose(input)
