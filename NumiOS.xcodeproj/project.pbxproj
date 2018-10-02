@@ -17,6 +17,8 @@
 		19B0A51D2110233200D2F73A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19B0A51B2110233200D2F73A /* LaunchScreen.storyboard */; };
 		19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B0A53E2110286300D2F73A /* NumiOS.swift */; };
 		19B0A5412110290200D2F73A /* NumiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19B0A4F22110231900D2F73A /* NumiOS.framework */; };
+		60819F7F2162798800DE4A7B /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F7E2162798800DE4A7B /* ArrayExtension.swift */; };
+		60819F81216279AF00DE4A7B /* ArrayExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F80216279AF00DE4A7B /* ArrayExtensionTests.swift */; };
 		CE0D41B92161C08A0026639A /* NumiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60819F442160911800DE4A7B /* NumiOSTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		19B0A53E2110286300D2F73A /* NumiOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOS.swift; sourceTree = "<group>"; };
 		60819F442160911800DE4A7B /* NumiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumiOSTests.swift; sourceTree = "<group>"; };
 		60819F462160911800DE4A7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60819F7E2162798800DE4A7B /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		60819F80216279AF00DE4A7B /* ArrayExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 				19B0A4F52110231900D2F73A /* NumiOS.h */,
 				19B0A53E2110286300D2F73A /* NumiOS.swift */,
 				1917F19F216089F200958D44 /* NumExtension.swift */,
+				60819F7E2162798800DE4A7B /* ArrayExtension.swift */,
 				19B0A4F62110231900D2F73A /* Info.plist */,
 			);
 			path = NumiOS;
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				60819F442160911800DE4A7B /* NumiOSTests.swift */,
+				60819F80216279AF00DE4A7B /* ArrayExtensionTests.swift */,
 				60819F462160911800DE4A7B /* Info.plist */,
 			);
 			path = NumiOSTests;
@@ -278,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0D41B92161C08A0026639A /* NumiOSTests.swift in Sources */,
+				60819F81216279AF00DE4A7B /* ArrayExtensionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1917F1A0216089F200958D44 /* NumExtension.swift in Sources */,
+				60819F7F2162798800DE4A7B /* ArrayExtension.swift in Sources */,
 				19B0A53F2110286300D2F73A /* NumiOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
