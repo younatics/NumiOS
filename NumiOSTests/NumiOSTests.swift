@@ -99,19 +99,272 @@ class NumiOSTests: XCTestCase {
     }
     
     func testConcatenate() {
-        var array0: [[Int]] = [[0,1,2,3]]
-        var array1: [[Int]] = [[0,1,2,3]]
-        var output = NumiOS.concatenate(array0, array1)
-        var answer = [
-            [0,1,2,3,0,1,2,3]]
+        var run: () -> () = {
+            let input0: [Int] = [0,1,2,3]
+            let input1: [Int] = [0,1,2,3]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [0,1,2,3,0,1,2,3]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [Int] = outputCastToInt as? [Int] else {
+                XCTAssert(false, "output can't cast to [Int]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [Int] = answerCastToInt as? [Int] else {
+                XCTAssert(false, "answer can't cast to [Int]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+        
+        run = {
+            let input0: [[Int]] = [[0,1,2,3]]
+            let input1: [[Int]] = [[4,5,6,7]]
+            let input2: [[Int]] = [[10,11,12,13]]
+            let output: [Any] = NumiOS.concatenate(input0, input1, input2)
+            let answer: [Any] = [[0,1,2,3],[4,5,6,7],[10,11,12,13]]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[Int]] = outputCastToInt as? [[Int]] else {
+                XCTAssert(false, "output can't cast to [[Int]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[Int]] = answerCastToInt as? [[Int]] else {
+                XCTAssert(false, "answer can't cast to [[Int]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+        run = {
+            let input0: [Any] = [
+                [0,1,2,3]
+            ]
+            let input1: [Any] = [
+                [4,5,6,7]
+            ]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [
+                [0,1,2,3],
+                [4,5,6,7]
+            ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[Int]] = outputCastToInt as? [[Int]] else {
+                XCTAssert(false, "output can't cast to [[Int]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[Int]] = answerCastToInt as? [[Int]] else {
+                XCTAssert(false, "answer can't cast to [[Int]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+        run = {
+            let input0: [Any] = [[[0, 1, 2]], [[0, 1, 2, 3]]]
+            let input1: [Any] = [[[4, 5, 6]], [[4, 5, 6, 7]]]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [
+                [[0, 1, 2]],
+                [[0, 1, 2, 3]],
+                [[4, 5, 6]],
+                [[4, 5, 6, 7]]
+            ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[[Int]]] = outputCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "output can't cast to [[[Int]]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[[Int]]] = answerCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "answer can't cast to [[[Int]]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+        run = {
+            let input0: [Any] = [[0, 1, 2, 3], [0, 1, 2, 3]]
+            let input1: [Any] = [[0, 1, 2, 3], [0, 1, 2, 3]]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [
+                [0, 1, 2, 3],
+                [0, 1, 2, 3],
+                [0, 1, 2, 3],
+                [0, 1, 2, 3],
+            ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[Int]] = outputCastToInt as? [[Int]] else {
+                XCTAssert(false, "output can't cast to [[Int]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[Int]] = answerCastToInt as? [[Int]] else {
+                XCTAssert(false, "answer can't cast to [[Int]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+        run = {
+            let input0: [Any] = [[[0, 1, 2, 3]], [[0, 1, 2, 3]]]
+            let input1: [Any] = [[[4, 5, 6, 7]], [[4, 5, 6, 7]]]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [
+                [[0, 1, 2, 3]],
+                [[0, 1, 2, 3]],
+                [[4, 5, 6, 7]],
+                [[4, 5, 6, 7]]
+            ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[[Int]]] = outputCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "output can't cast to [[[Int]]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[[Int]]] = answerCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "answer can't cast to [[[Int]]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+
+        run = {
+            let input0: [Any] =
+                [
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                ]
+            let input1: [Any] =
+                [
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                ]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] =
+                [
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                    [
+                        [0,1],
+                        [2,3],
+                    ],
+                ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[[Int]]] = outputCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "output can't cast to [[[Int]]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[[Int]]] = answerCastToInt as? [[[Int]]] else {
+                XCTAssert(false, "answer can't cast to [[[Int]]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+
+        run = {
+            let input0: [Any] = [[1,2,3],[4,5,6],[7,8,9]]
+            let input1: [Any] = [[10,11,12]]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [
+                [1,2,3],
+                [4,5,6],
+                [7,8,9],
+                [10,11,12]
+            ]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[Int]] = outputCastToInt as? [[Int]] else {
+                XCTAssert(false, "output can't cast to [[Int]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[Int]] = answerCastToInt as? [[Int]] else {
+                XCTAssert(false, "answer can't cast to [[Int]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+    }
+    
+    func testDimensionsLevel() {
+        var input: [Any] = [[0,1,2,3],[0,1,2,3]]
+        var output: Int = NumiOS.dimensionsLevel(input)
+        var answer: Int = 2
         XCTAssertEqual(output, answer)
         
-        array0 = [[0,1,2]]
-        array1 = [[4,5,6,7]]
-        let array2 = [[10,11,12,13]]
-        output = NumiOS.concatenate(array0, array1, array2)
-        answer = [
-            [0,1,2,4,5,6,7,10,11,12,13]]
+        input = [[[0,1,2,3],[0,1,2,3]],[[0,1,2,3],[0,1,2,3]]]
+        output = NumiOS.dimensionsLevel(input)
+        answer = 3
+        XCTAssertEqual(output, answer)
+        
+        input = [[[[1],[2]],[[3],[4]]],[[1],[2]],[[3],[4]]]
+        output = NumiOS.dimensionsLevel(input)
+        answer = 4
         XCTAssertEqual(output, answer)
     }
     

@@ -73,21 +73,31 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public class func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
-        var returnArray = [[T]]()
-        
-        for array in arrays {
-            if returnArray.count == 0 {
-                returnArray = array
-            } else if returnArray.count != array.count {
-                fatalError("First dimention shape should be same")
-            } else {
-                for (index, value) in array.enumerated() {
-                    returnArray[index] += value
-                }
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html
+    public class func concatenate(_ arrays: Array<Any> ...) -> Array<Any> {
+        guard arrays.count > 1 else { return arrays.first ?? [] }
+        let level: Int = dimensionsLevel(arrays[0])
+        for array in arrays[1...] {
+            guard level == dimensionsLevel(array) else {
+                fatalError("All the input arrays must have same number of dimensions")
             }
         }
-        return returnArray
+        return arrays.reduce(Array<Any>()) { (result, element) -> Array<Any> in
+            var result = result
+            element.forEach({ result.append($0) })
+            return result
+        }
+    }
+    
+    public class func dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
+        return _dimensionsLevel(array) + 1
+    }
+    
+    private class func _dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
+        if let e_array = array.first as? Array<Any> {
+            return 1 + _dimensionsLevel(e_array)
+        }
+        return 0
     }
     
     public class func transpose<T: Numeric>(_ array:[[T]]) -> [[T]] {

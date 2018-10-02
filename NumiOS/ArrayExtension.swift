@@ -7,16 +7,28 @@
 //
 
 public extension Array {
-    func castToInt(default: Int = 0) -> Array<Int> {
-        return self.cast(to: Int.self, default: `default`)
+    func castToInt(default: Int = 0) -> Array<Any> {
+        if Element.self == Any.self {
+            return self.cast(to: Any.self, default: `default`)
+        } else {
+            return self.cast(to: Int.self, default: `default`)
+        }
     }
     
-    func castToFloat(default: Float = 0) -> Array<Float> {
-        return self.cast(to: Float.self, default: `default`)
+    func castToFloat(default: Float = 0) -> Array<Any> {
+        if Element.self == Any.self {
+            return self.cast(to: Any.self, default: `default`)
+        } else {
+            return self.cast(to: Float.self, default: `default`)
+        }
     }
     
-    func castToDouble(default: Double = 0) -> Array<Double> {
-        return self.cast(to: Double.self, default: `default`)
+    func castToDouble(default: Double = 0) -> Array<Any> {
+        if Element.self == Any.self {
+            return self.cast(to: Any.self, default: `default`)
+        } else {
+            return self.cast(to: Double.self, default: `default`)
+        }
     }
     
     func cast<T>(to type: T.Type, default: T) -> Array<T> {
@@ -39,5 +51,23 @@ public extension Array where Element == Array<Any> {
     
     func cast<T>(to type: T.Type, default: T) -> Array<Any> {
         return self.map({ $0.cast(to: type, default: `default`) })
+    }
+}
+
+public extension Array where Element == Int {
+    func castToInt(default: Int = 0) -> Array<Any> {
+        return self.cast(to: Int.self, default: `default`)
+    }
+}
+
+public extension Array where Element == Float {
+    func castToInt(default: Int = 0) -> Array<Any> {
+        return self.cast(to: Int.self, default: `default`)
+    }
+}
+
+public extension Array where Element == Double {
+    func castToInt(default: Int = 0) -> Array<Any> {
+        return self.cast(to: Int.self, default: `default`)
     }
 }
