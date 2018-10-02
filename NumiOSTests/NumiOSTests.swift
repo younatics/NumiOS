@@ -100,21 +100,41 @@ class NumiOSTests: XCTestCase {
     
     func testConcatenate() {
         var run: () -> () = {
-            let input0: [[Int]] = [[0,1,2,3]]
-            let input1: [[Int]] = [[0,1,2,3]]
-            let output = NumiOS.concatenate(input0, input1)
-            let answer = [[0,1,2,3,0,1,2,3]]
-            XCTAssertEqual(output, answer)
+            let input0: [Int] = [0,1,2,3]
+            let input1: [Int] = [0,1,2,3]
+            let output: [Any] = NumiOS.concatenate(input0, input1)
+            let answer: [Any] = [0,1,2,3,0,1,2,3]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [Int] = outputCastToInt as? [Int] else {
+                XCTAssert(false, "output can't cast to [Int]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [Int] = answerCastToInt as? [Int] else {
+                XCTAssert(false, "answer can't cast to [Int]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
         }
         run()
-
+        
         run = {
-            let input0: [[Int]] = [[0,1,2]]
+            let input0: [[Int]] = [[0,1,2,3]]
             let input1: [[Int]] = [[4,5,6,7]]
             let input2: [[Int]] = [[10,11,12,13]]
-            let output = NumiOS.concatenate(input0, input1, input2)
-            let answer = [[0,1,2,4,5,6,7,10,11,12,13]]
-            XCTAssertEqual(output, answer)
+            let output: [Any] = NumiOS.concatenate(input0, input1, input2)
+            let answer: [Any] = [[0,1,2,3],[4,5,6,7],[10,11,12,13]]
+            let outputCastToInt: Any = output.castToInt()
+            let answerCastToInt: Any = answer.castToInt()
+            guard let outputCasted: [[Int]] = outputCastToInt as? [[Int]] else {
+                XCTAssert(false, "output can't cast to [[Int]]. output : \(outputCastToInt)")
+                return
+            }
+            guard let answerCasted: [[Int]] = answerCastToInt as? [[Int]] else {
+                XCTAssert(false, "answer can't cast to [[Int]]. answer : \(answerCastToInt)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
         }
         run()
 
