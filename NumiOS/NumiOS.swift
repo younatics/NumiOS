@@ -90,10 +90,22 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public class func dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
-        guard validateMatrix(array: array) else {
-            fatalError("Only support full dimensional matrix")
+    public class func concatenate(_ arrays: Array<Any> ...) -> Array<Any> {
+        guard arrays.count > 1 else { return arrays.first ?? [] }
+        let level: Int = dimensionsLevel(arrays[0])
+        for array in arrays[1...] {
+            guard level == dimensionsLevel(array) else {
+                fatalError("All the input arrays must have same number of dimensions")
+            }
         }
+        return arrays.reduce(Array<Any>()) { (result, element) -> Array<Any> in
+            var result = result
+            element.forEach({ result.append($0) })
+            return result
+        }
+    }
+    
+    public class func dimensionsLevel<T: Numeric>(_ array: [Any]) -> T {
         return _dimensionsLevel(array) + 1
     }
     
