@@ -73,23 +73,7 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
-    public class func concatenate<T: Numeric>(_ arrays: [[T]]...) -> [[T]] {
-        var returnArray = [[T]]()
-        
-        for array in arrays {
-            if returnArray.count == 0 {
-                returnArray = array
-            } else if returnArray.count != array.count {
-                fatalError("First dimention shape should be same")
-            } else {
-                for (index, value) in array.enumerated() {
-                    returnArray[index] += value
-                }
-            }
-        }
-        return returnArray
-    }
-    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html
     public class func concatenate(_ arrays: Array<Any> ...) -> Array<Any> {
         guard arrays.count > 1 else { return arrays.first ?? [] }
         let level: Int = dimensionsLevel(arrays[0])
