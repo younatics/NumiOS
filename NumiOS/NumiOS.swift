@@ -118,31 +118,60 @@ public class NumiOS: NSObject {
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
-    public class func mean(_ array: [Any]) -> Double {
+    public class func mean(_ array: Array<Any>) -> Int {
+        return mean(array, initialValue: 0, castToType: castToInt)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
+    public class func mean(_ array: Array<Any>) -> Float {
+        return mean(array, initialValue: 0, castToType: castToFloat)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
+    public class func mean(_ array: Array<Any>) -> Double {
+        return mean(array, initialValue: 0, castToType: castToDouble)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.mean.html
+    public class func mean<T: Numeric & Dividable>(_ array: Array<Any>, initialValue: T, castToType: (Any) -> T?) -> T {
         guard validateMatrix(array: array) else {
             fatalError("Only support full dimensional matrix")
         }
-        let result = sum(array)
+        let result: (total: T, size: T) = sum(array, initialValue: initialValue, castToType: castToType)
         return result.total / result.size
     }
     
-    /// return sum of elements and size
-    private class func sum(_ array: [Any]) -> (total: Double, size: Double) {
-        var total: Double = 0
-        var index: Double = 0
-        array.forEach { element in
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
+    public class func sum(_ array: Array<Any>) -> (total: Int, size: Int) {
+        return sum(array, initialValue: 0, castToType: castToInt)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
+    public class func sum(_ array: Array<Any>) -> (total: Float, size: Float) {
+        return sum(array, initialValue: 0, castToType: castToFloat)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
+    public class func sum(_ array: Array<Any>) -> (total: Double, size: Double) {
+        return sum(array, initialValue: 0, castToType: castToDouble)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html
+    public class func sum<T: Numeric>(_ array: Array<Any>, initialValue: T, castToType: (Any) -> T?) -> (total: T, size: T) {
+        return array.reduce((initialValue, initialValue)) { (result, element) -> (T, T) in
+            var result = result
             if let e_array = element as? Array<Any> {
-                let result = sum(e_array)
-                total += result.total
-                index += result.size
+                let (total, size) = sum(e_array, initialValue: initialValue, castToType: castToType)
+                result.0 += total
+                result.1 += size
             } else {
-                if let numeric = element as? NSNumber {
-                    total += Double(numeric)
-                    index += 1
+                if let e_t = castToType(element) {
+                    result.0 += e_t
+                    result.1 += 1
                 }
             }
+            return result
         }
-        return (total, index)
     }
 }
 
