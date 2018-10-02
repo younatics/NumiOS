@@ -18,7 +18,7 @@ class ArrayExtensionTests: XCTestCase {
             XCTAssertEqual(output, answer)
         }
         run()
-        
+
         run = {
             let input: [Any] = [1,0.1,2.1,0xff]
             let output: [Int] = input.cast(to: Int.self, default: 0)
@@ -26,7 +26,7 @@ class ArrayExtensionTests: XCTestCase {
             XCTAssertEqual(output, answer)
         }
         run()
-        
+
         run = {
             let input: [Float?] = [1,0.1,2.1,0xff,nil]
             let output: [Float] = input.cast(to: Float.self, default: 0)
@@ -34,7 +34,7 @@ class ArrayExtensionTests: XCTestCase {
             XCTAssertEqual(output, answer)
         }
         run()
-        
+
         run = {
             let input: [Double?] = [1,0.1,nil,2.1,0xff]
             let output: [Double] = input.cast(to: Double.self, default: 0)
@@ -42,7 +42,7 @@ class ArrayExtensionTests: XCTestCase {
             XCTAssertEqual(output, answer)
         }
         run()
-        
+
         run = {
             let input: [Any] = [1,0.1,2.1,0xff,"nil"]
             let output: [Int] = input.cast(to: Int.self, default: 0)
@@ -50,12 +50,28 @@ class ArrayExtensionTests: XCTestCase {
             XCTAssertEqual(output, answer)
         }
         run()
-        
+
         run = {
             let input: [Any] = [1,0.1,2.1,0xff,"nil"]
             let output: [Int] = input.cast(to: Optional<Int>.self, default: nil).compactMap({ $0 })
             let answer: [Int] = [1,255]
             XCTAssertEqual(output, answer)
+        }
+        run()
+
+        run = {
+            let input: [Array<Any>] = [[4,5,6,7]]
+            let output: [Any] = input.castToInt()
+            let answer: [[Int]] = [[4,5,6,7]]
+            XCTAssertEqual(output as! [[Int]], answer)
+        }
+        run()
+        
+        run = {
+            let input: [Any] = [[4,5,6,7]]
+            let output: [Any] = input.castToInt()
+            let answer: [[Int]] = [[4,5,6,7]]
+            XCTAssertEqual(output as! [[Int]], answer)
         }
         run()
     }
