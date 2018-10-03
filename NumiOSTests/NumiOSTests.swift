@@ -98,6 +98,52 @@ class NumiOSTests: XCTestCase {
         XCTAssertEqual(output, answer)
     }
     
+    func testEye() {
+        var run: () -> () = {
+            let inputRows: Int = 3
+            let output: [[Int]] = NumiOS.eye(rows: inputRows)
+            let answer: [[Int]] = [[1,0,0],
+                                   [0,1,0],
+                                   [0,0,1]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let inputRows: Int = 3
+            let inputDiagonal: Int = 1
+            let output: [[Int]] = NumiOS.eye(rows: inputRows, diagonal: inputDiagonal)
+            let answer: [[Int]] = [[0,1,0],
+                                   [0,0,1],
+                                   [0,0,0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let inputRows: Int = 3
+            let inputColumns: Int = 5
+            let output: [[Float]] = NumiOS.eye(rows: inputRows, columns: inputColumns)
+            let answer: [[Float]] = [[1,0,0,0,0],
+                                     [0,1,0,0,0],
+                                     [0,0,1,0,0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let inputRows: Int = 3
+            let inputColumns: Int = 5
+            let inputDiagonal: Int = 2
+            let output: [[Float]] = NumiOS.eye(rows: inputRows, columns: inputColumns, diagonal: inputDiagonal)
+            let answer: [[Float]] = [[0,0,1,0,0],
+                                     [0,0,0,1,0],
+                                     [0,0,0,0,1]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+    }
+    
     func testConcatenate() {
         var run: () -> () = {
             let input0: [Int] = [0,1,2,3]

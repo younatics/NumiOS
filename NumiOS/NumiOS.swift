@@ -72,6 +72,12 @@ public class NumiOS: NSObject {
         return returnArray
     }
     
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
+    public class func eye<T: Numeric>(rows: Int, columns: Int? = nil, diagonal: Int = 0, value: T = 1, default: T = 0) -> [[T]] {
+        let columns = columns ?? rows
+        return (0..<rows).map({ row in (0..<columns).map({ col in (row + diagonal) == col ? value : `default` }) })
+    }
+    
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html
     public class func concatenate(_ arrays: Array<Any> ...) -> Array<Any> {
         guard arrays.count > 1 else { return arrays.first ?? [] }
