@@ -47,15 +47,35 @@ public class NumiOS: NSObject {
     }
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
-    public class func zeros(_ array:[Int]) -> Array<Any> {
-        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 0)
-        return result.array
+    public class func zeros(_ array: [Int]) -> Array<Any> {
+        return zeros(array, type: Int.self)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+    public class func zeros<T: Numeric>(_ array: [Int], type: T.Type) -> Array<Any> {
+        return zerosNumeric(array, type: type)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+    /// T의 타입에 맞는 0을 넣어주기 위함 (casting 할 필요가 없어져서 이 함수 만듬)
+    private class func zerosNumeric<T: Numeric>(_ array: [Int], type: T.Type, zero: T = 0) -> Array<Any> {
+        return full(array, fillValue: zero)
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
-    public class func ones(_ array:[Int]) -> Array<Any> {
-        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 1)
-        return result.array
+    public class func ones(_ array: [Int]) -> Array<Any> {
+        return ones(array, type: Int.self)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
+    public class func ones<T: Numeric>(_ array: [Int], type: T.Type) -> Array<Any> {
+        return onesNumeric(array, type: type)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
+    /// T의 타입에 맞는 1을 넣어주기 위함 (casting 할 필요가 없어져서 이 함수 만듬)
+    private class func onesNumeric<T: Numeric>(_ array: [Int], type: T.Type, one: T = 1) -> Array<Any> {
+        return full(array, fillValue: one)
     }
     
     public class func oneHotEncoding(_ array:[Int], classes: Int = 0) -> [[Int]] {
