@@ -52,8 +52,7 @@ public class NumiOS: NSObject {
         return result.array
     }
     
-    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
-    public class func eye(_ array:[Int], classes: Int = 0) -> [[Int]] {
+    public class func oneHotEncoding(_ array:[Int], classes: Int = 0) -> [[Int]] {
         var classes = classes
         guard let calculatedMax = array.max() else { fatalError("Max value should be exist")}
         
