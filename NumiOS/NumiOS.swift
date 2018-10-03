@@ -78,24 +78,74 @@ public class NumiOS: NSObject {
         return full(array, fillValue: one)
     }
     
-    public class func oneHotEncoding(_ array:[Int], classes: Int = 0) -> [[Int]] {
-        var classes = classes
-        guard let calculatedMax = array.max() else { fatalError("Max value should be exist")}
-        
-        if calculatedMax + 1 > classes {
-            classes = calculatedMax + 1
+    public class func oneHotEncoding<T: Numeric>(_ array: [Any], classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[T]] {
+        return oneHotEncoding(array, type: T.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+    }
+    
+    public class func oneHotEncoding<T: Equatable, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        switch type {
+        case is Int.Type: return oneHotEncodingInteger(array, type: Int.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        case is Float.Type: return oneHotEncodingFloating(array, type: Float.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        case is Double.Type: return oneHotEncodingFloating(array, type: Double.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        default: break
         }
-        
-        var returnArray = Array(repeating: Array(repeating: 0, count: classes), count: array.count)
-
-        for (index, value) in array.enumerated() {
-            if value <= classes {
-                returnArray[index][value] = 1
-            } else {
-                fatalError("One hot encoding value should not be bigger than max length")
+        let uniqueArray: [T] = unique(array, type: type) as! [T]
+        let columns: Int = max(uniqueArray.count, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
             }
+            result.append(row)
+        })
+        return result
+    }
+    
+    private class func oneHotEncodingInteger<T: BinaryInteger, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        let uniqueArray: [T] = (unique(array, type: type) as! [T]).sorted()
+        let uniqueMax = uniqueArray.max() ?? 0
+        let uniqueMax_Int = Int(clamping: uniqueMax) + 1
+        var uniqueMaxColumns: Int = uniqueArray.count
+        if shouldOptimizeWithNumeric, uniqueMaxColumns < uniqueMax_Int {
+            uniqueMaxColumns = uniqueMax_Int
         }
-        return returnArray
+        let columns: Int = max(uniqueMaxColumns, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if shouldOptimizeWithNumeric {
+                let column = Int(clamping: element as! T)
+                row[column] = 1
+            } else if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
+            }
+            result.append(row)
+        })
+        return result
+    }
+    
+    private class func oneHotEncodingFloating<T: BinaryFloatingPoint, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        let uniqueArray: [T] = (unique(array, type: type) as! [T]).sorted()
+        let uniqueMax = uniqueArray.max() ?? 0
+        let uniqueMax_Int: Int = Int(uniqueMax) + 1
+        var uniqueMaxColumns: Int = uniqueArray.count
+        if shouldOptimizeWithNumeric, uniqueMaxColumns < uniqueMax_Int {
+            uniqueMaxColumns = uniqueMax_Int
+        }
+        let columns: Int = max(uniqueMaxColumns, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if shouldOptimizeWithNumeric {
+                let column = Int(element as! T)
+                row[column] = 1
+            } else if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
+            }
+            result.append(row)
+        })
+        return result
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html

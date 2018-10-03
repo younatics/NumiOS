@@ -71,31 +71,94 @@ class NumiOSTests: XCTestCase {
     }
 
     func testOneHotEncoding() {
-        var input: [Int] = [0,1,2,3,4]
-        var output = NumiOS.oneHotEncoding(input)
-        var answer = [
-            [1,0,0,0,0],
-            [0,1,0,0,0],
-            [0,0,1,0,0],
-            [0,0,0,1,0],
-            [0,0,0,0,1]]
-        XCTAssertEqual(output, answer)
+        var run: () -> () = {
+            let input: [Int] = [0,1,2,3,4]
+            let output: [[Int]] = NumiOS.oneHotEncoding(input)
+            let answer: [[Int]] = [
+                [1,0,0,0,0],
+                [0,1,0,0,0],
+                [0,0,1,0,0],
+                [0,0,0,1,0],
+                [0,0,0,0,1]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
         
-        input = [0,0,0,0,1,1,2,3,0,6,4]
-        output = NumiOS.oneHotEncoding(input, classes: 8)
-        answer = [
-            [1,0,0,0,0,0,0,0],
-            [1,0,0,0,0,0,0,0],
-            [1,0,0,0,0,0,0,0],
-            [1,0,0,0,0,0,0,0],
-            [0,1,0,0,0,0,0,0],
-            [0,1,0,0,0,0,0,0],
-            [0,0,1,0,0,0,0,0],
-            [0,0,0,1,0,0,0,0],
-            [1,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,1,0],
-            [0,0,0,0,1,0,0,0]]
-        XCTAssertEqual(output, answer)
+        run = {
+            let input: [Int] = [0,0,0,0,1,1,2,3,0,6,4]
+            let output: [[Int]] = NumiOS.oneHotEncoding(input, classes: 8)
+            let answer: [[Int]] = [
+                [1,0,0,0,0,0,0,0],
+                [1,0,0,0,0,0,0,0],
+                [1,0,0,0,0,0,0,0],
+                [1,0,0,0,0,0,0,0],
+                [0,1,0,0,0,0,0,0],
+                [0,1,0,0,0,0,0,0],
+                [0,0,1,0,0,0,0,0],
+                [0,0,0,1,0,0,0,0],
+                [1,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,1,0],
+                [0,0,0,0,1,0,0,0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let input: [Any] = [0,0,0,0,1,1,2,3,0,6,4]
+            let output: [[Int]] = NumiOS.oneHotEncoding(input, shouldOptimizeWithNumeric: false)
+            let answer: [[Int]] = [
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [0,1,0,0,0,0],
+                [0,1,0,0,0,0],
+                [0,0,1,0,0,0],
+                [0,0,0,1,0,0],
+                [1,0,0,0,0,0],
+                [0,0,0,0,0,1],
+                [0,0,0,0,1,0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let input: [Float] = [0,0,0,0,1,1,2,3,0,6,4]
+            let output: [[Float]] = NumiOS.oneHotEncoding(input, shouldOptimizeWithNumeric: false)
+            let answer: [[Float]] = [
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [1,0,0,0,0,0],
+                [0,1,0,0,0,0],
+                [0,1,0,0,0,0],
+                [0,0,1,0,0,0],
+                [0,0,0,1,0,0],
+                [1,0,0,0,0,0],
+                [0,0,0,0,0,1],
+                [0,0,0,0,1,0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
+        
+        run = {
+            let input: [Any] = [0,0,0,0,1,1,2,3,0,6,4]
+            let output: [[Int]] = NumiOS.oneHotEncoding(input, classes: 8, shouldOptimizeWithNumeric: false)
+            let answer: [[Int]] = [
+                [1, 0, 0, 0, 0, 0, 0, 0],
+                [1, 0, 0, 0, 0, 0, 0, 0],
+                [1, 0, 0, 0, 0, 0, 0, 0],
+                [1, 0, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0],
+                [0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0, 0],
+                [1, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 1, 0, 0, 0]]
+            XCTAssertEqual(output, answer)
+        }
+        run()
     }
     
     func testEye() {
