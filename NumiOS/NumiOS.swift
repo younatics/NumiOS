@@ -78,6 +78,25 @@ public class NumiOS: NSObject {
         return (0..<rows).map({ row in (0..<columns).map({ col in (row + diagonal) == col ? value : `default` }) })
     }
     
+    // see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.unique.html
+    public class func unique<T: Equatable>(_ array: Array<T>) -> Array<T> {
+        var result: Array<T> = []
+        array.forEach({ result.contains($0) ? () : result.append($0) })
+        return result
+    }
+    
+    // see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.unique.html
+    public class func unique<T: Equatable>(_ array: Array<Any>, type: T.Type) -> Array<Any> {
+        var result: Array<T> = []
+        array.forEach({
+            guard let element = $0 as? T else {
+                fatalError("Arrays Element must have same type with \(String(describing: T.self)) (Arrays type is \(String(describing: T.self))")
+            }
+            result.contains(element) ? () : result.append(element)
+        })
+        return result
+    }
+    
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html
     public class func concatenate(_ arrays: Array<Any> ...) -> Array<Any> {
         guard arrays.count > 1 else { return arrays.first ?? [] }

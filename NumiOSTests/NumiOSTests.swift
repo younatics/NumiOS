@@ -144,6 +144,36 @@ class NumiOSTests: XCTestCase {
         run()
     }
     
+    func testUnique() {
+        var run: () -> () = {
+            let inputArray: [Int] = [3,1,2,3,4,1,2,0,1,4,23,4,2,3,2,3]
+            let output: [Int] = NumiOS.unique(inputArray)
+            let answer: [Int] = [3,1,2,4,0,23]
+            XCTAssertEqual(output, answer)
+            
+            let outputSorted: [Int] = output.sorted()
+            let answerSorted: [Int] = [0,1,2,3,4,23]
+            XCTAssertEqual(outputSorted, answerSorted)
+        }
+        run()
+        
+        run = {
+            let inputArray: [[[Int]]] = [[[1,2,3],[4,5,6]],[[1,2,3]],[[1,2,3],[4,5,6]]]
+            let output: [Any] = NumiOS.unique(inputArray, type: [[Int]].self)
+            let answer: [Any] = [[[1,2,3],[4,5,6]],[[1,2,3]]]
+            guard let outputCasted: [[[Int]]] = output as? [[[Int]]] else {
+                XCTAssert(false, "output can't cast to [[[Int]]]. output : \(output)")
+                return
+            }
+            guard let answerCasted: [[[Int]]] = answer as? [[[Int]]] else {
+                XCTAssert(false, "output can't cast to [[[Int]]]. output : \(answer)")
+                return
+            }
+            XCTAssertEqual(outputCasted, answerCasted)
+        }
+        run()
+    }
+    
     func testConcatenate() {
         var run: () -> () = {
             let input0: [Int] = [0,1,2,3]
