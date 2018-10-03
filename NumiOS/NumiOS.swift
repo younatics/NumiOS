@@ -39,6 +39,12 @@ public class NumiOS: NSObject {
         }
         return shape
     }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.full.html
+    public class func full(_ array: [Int], fillValue: Any) -> Array<Any> {
+        let result = multidimentional(shape: array, array: Array<Any>(), repeating: fillValue)
+        return result.array
+    }
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
     public class func zeros(_ array:[Int]) -> Array<Any> {
