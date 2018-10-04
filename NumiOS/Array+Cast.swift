@@ -1,8 +1,8 @@
 //
-//  ArrayExtension.swift
+//  Array+Cast.swift
 //  NumiOS
 //
-//  Created by 윤중현 on 02/10/2018.
+//  Created by 윤중현 on 04/10/2018.
 //  Copyright © 2018 Seungyoun Yi. All rights reserved.
 //
 

@@ -39,38 +39,138 @@ public class NumiOS: NSObject {
         }
         return shape
     }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.full.html
+    public class func full(_ array: [Int], fillValue: Any) -> Array<Any> {
+        let result = multidimentional(shape: array, array: Array<Any>(), repeating: fillValue)
+        return result.array
+    }
 
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
-    public class func zeros(_ array:[Int]) -> Array<Any> {
-        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 0)
-        return result.array
+    public class func zeros(_ array: [Int]) -> Array<Any> {
+        return zeros(array, type: Int.self)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+    public class func zeros<T: Numeric>(_ array: [Int], type: T.Type) -> Array<Any> {
+        return zerosNumeric(array, type: type)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.zeros.html
+    /// T의 타입에 맞는 0을 넣어주기 위함 (casting 할 필요가 없어져서 이 함수 만듬)
+    private class func zerosNumeric<T: Numeric>(_ array: [Int], type: T.Type, zero: T = 0) -> Array<Any> {
+        return full(array, fillValue: zero)
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
-    public class func ones(_ array:[Int]) -> Array<Any> {
-        let result = multidimentional(shape: array, array: Array<Any>(), repeating: 1)
-        return result.array
+    public class func ones(_ array: [Int]) -> Array<Any> {
+        return ones(array, type: Int.self)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
+    public class func ones<T: Numeric>(_ array: [Int], type: T.Type) -> Array<Any> {
+        return onesNumeric(array, type: type)
+    }
+    
+    /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.ones.html
+    /// T의 타입에 맞는 1을 넣어주기 위함 (casting 할 필요가 없어져서 이 함수 만듬)
+    private class func onesNumeric<T: Numeric>(_ array: [Int], type: T.Type, one: T = 1) -> Array<Any> {
+        return full(array, fillValue: one)
+    }
+    
+    public class func oneHotEncoding<T: Numeric>(_ array: [Any], classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[T]] {
+        return oneHotEncoding(array, type: T.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+    }
+    
+    public class func oneHotEncoding<T: Equatable, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        switch type {
+        case is Int.Type: return oneHotEncodingInteger(array, type: Int.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        case is Float.Type: return oneHotEncodingFloating(array, type: Float.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        case is Double.Type: return oneHotEncodingFloating(array, type: Double.self, classes: classes, shouldOptimizeWithNumeric: shouldOptimizeWithNumeric)
+        default: break
+        }
+        let uniqueArray: [T] = unique(array, type: type) as! [T]
+        let columns: Int = max(uniqueArray.count, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
+            }
+            result.append(row)
+        })
+        return result
+    }
+    
+    private class func oneHotEncodingInteger<T: BinaryInteger, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        let uniqueArray: [T] = (unique(array, type: type) as! [T]).sorted()
+        let uniqueMax = uniqueArray.max() ?? 0
+        let uniqueMax_Int = Int(clamping: uniqueMax) + 1
+        var uniqueMaxColumns: Int = uniqueArray.count
+        if shouldOptimizeWithNumeric, uniqueMaxColumns < uniqueMax_Int {
+            uniqueMaxColumns = uniqueMax_Int
+        }
+        let columns: Int = max(uniqueMaxColumns, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if shouldOptimizeWithNumeric {
+                let column = Int(clamping: element as! T)
+                row[column] = 1
+            } else if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
+            }
+            result.append(row)
+        })
+        return result
+    }
+    
+    private class func oneHotEncodingFloating<T: BinaryFloatingPoint, R: Numeric>(_ array: [Any], type: T.Type, classes: Int = 0, shouldOptimizeWithNumeric: Bool = true) -> [[R]] {
+        let uniqueArray: [T] = (unique(array, type: type) as! [T]).sorted()
+        let uniqueMax = uniqueArray.max() ?? 0
+        let uniqueMax_Int: Int = Int(uniqueMax) + 1
+        var uniqueMaxColumns: Int = uniqueArray.count
+        if shouldOptimizeWithNumeric, uniqueMaxColumns < uniqueMax_Int {
+            uniqueMaxColumns = uniqueMax_Int
+        }
+        let columns: Int = max(uniqueMaxColumns, classes)
+        var result: [[R]] = []
+        array.enumerated().forEach({ row, element in
+            var row = zeros([columns], type: R.self) as! [R]
+            if shouldOptimizeWithNumeric {
+                let column = Int(element as! T)
+                row[column] = 1
+            } else if let column = uniqueArray.firstIndex(of: element as! T) {
+                row[column] = 1
+            }
+            result.append(row)
+        })
+        return result
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.eye.html
-    public class func eye(_ array:[Int], classes: Int = 0) -> [[Int]] {
-        var classes = classes
-        guard let calculatedMax = array.max() else { fatalError("Max value should be exist")}
-        
-        if calculatedMax + 1 > classes {
-            classes = calculatedMax + 1
-        }
-        
-        var returnArray = Array(repeating: Array(repeating: 0, count: classes), count: array.count)
-
-        for (index, value) in array.enumerated() {
-            if value <= classes {
-                returnArray[index][value] = 1
-            } else {
-                fatalError("One hot encoding value should not be bigger than max length")
+    public class func eye<T: Numeric>(rows: Int, columns: Int? = nil, diagonal: Int = 0, value: T = 1, default: T = 0) -> [[T]] {
+        let columns = columns ?? rows
+        return (0..<rows).map({ row in (0..<columns).map({ col in (row + diagonal) == col ? value : `default` }) })
+    }
+    
+    // see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.unique.html
+    public class func unique<T: Equatable>(_ array: Array<T>) -> Array<T> {
+        var result: Array<T> = []
+        array.forEach({ result.contains($0) ? () : result.append($0) })
+        return result
+    }
+    
+    // see more details in https://docs.scipy.org/doc/numpy-1.15.0/reference/generated/numpy.unique.html
+    public class func unique<T: Equatable>(_ array: Array<Any>, type: T.Type) -> Array<Any> {
+        var result: Array<T> = []
+        array.forEach({
+            guard let element = $0 as? T else {
+                fatalError("Arrays Element must have same type with \(String(describing: T.self)) (Arrays type is \(String(describing: T.self))")
             }
-        }
-        return returnArray
+            result.contains(element) ? () : result.append(element)
+        })
+        return result
     }
     
     /// see more details in https://docs.scipy.org/doc/numpy/reference/generated/numpy.concatenate.html

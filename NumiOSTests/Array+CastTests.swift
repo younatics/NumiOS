@@ -1,5 +1,5 @@
 //
-//  ArrayExtensionTests.swift
+//  Array+CastTests.swift
 //  NumiOSTests
 //
 //  Created by 윤중현 on 02/10/2018.
@@ -9,7 +9,7 @@
 import XCTest
 import NumiOS
 
-class ArrayExtensionTests: XCTestCase {
+class Array_CastTests: XCTestCase {
     func testCast() {
         var run: () -> () = {
             let input: [Int] = [1,2,3,4]
