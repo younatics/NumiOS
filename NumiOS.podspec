@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NumiOS'
-  s.version          = '0.1.0'
-  s.summary          = 'Numpy in iOS'
+  s.version          = '1.0.0'
+  s.summary          = 'Numpy in iOS (Swift 6)'
 
   s.description      = <<-DESC
                         Magic will be happened when you use NumiOS!
@@ -22,7 +22,8 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/younatics/NumiOS.git', :tag => s.version.to_s }
   s.source_files     = 'NumiOS/*.swift'
 
-  s.ios.deployment_target = '9.0'
+  s.swift_version = '6.0'
+  s.ios.deployment_target = '13.0'
   s.frameworks = 'Foundation'
   s.requires_arc = true
 end
