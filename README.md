@@ -1,16 +1,16 @@
 # NumiOS
-[![Version](https://img.shields.io/cocoapods/v/NumiOS.svg?style=flat)](http://cocoapods.org/pods/NumiOS)
-[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-brightgreen.svg?style=flat)](https://github.com/younatics/NumiOS/blob/master/Package.swift)
+[![CocoaPods](https://img.shields.io/cocoapods/v/NumiOS.svg?style=flat)](https://cocoapods.org/pods/NumiOS)
+[![Platform](https://img.shields.io/badge/platform-iOS%2013%2B-blue.svg?style=flat)](https://github.com/younatics/NumiOS/blob/master/Package.swift)
+[![Swift 6](https://img.shields.io/badge/Swift-6.0-orange.svg?style=flat)](https://www.swift.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/younatics/NumiOS/blob/master/LICENSE)
-[![Platform](https://img.shields.io/cocoapods/p/NumiOS.svg?style=flat)](http://cocoapods.org/pods/Triangulation)
-[![Swift 6.0](https://img.shields.io/badge/Swift-6.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
 
 ## Introduction
 ⚡️Numpy in iOS
 
 ## Requirements
 
-`NumiOS` is written in Swift 6. Compatible with iOS 13.0+. Supports Swift Package Manager, CocoaPods, and Carthage.
+`NumiOS` uses Swift tools 6.0 and requires iOS 13.0 or later with Swift Package Manager or CocoaPods.
 
 ## Installation
 
@@ -30,22 +30,21 @@ dependencies: [
 ]
 ```
 
-### Cocoapods
+### CocoaPods
 
-NumiOS is available through [CocoaPods](http://cocoapods.org). To install
+NumiOS 1.0.0 is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'NumiOS'
-```
-### Carthage
-```
-github "younatics/NumiOS"
+pod 'NumiOS', '1.0.0'
 ```
 
 ## Usage
 
-```Swift 
+```swift
+import XCTest
+import NumiOS
+
 class NumiOSTests: XCTestCase {
     func testShape() {
         var input: [Any] = [1,2,3,4]
