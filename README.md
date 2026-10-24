@@ -10,7 +10,7 @@
 
 ## Requirements
 
-`NumiOS` uses Swift tools 6.0 and requires iOS 13.0 or later with Swift Package Manager or CocoaPods.
+`NumiOS` uses Swift tools 6.0 and requires iOS 15.0 or later with Swift Package Manager or CocoaPods.
 
 ## Installation
 

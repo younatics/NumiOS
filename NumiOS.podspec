@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NumiOS'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'Numpy in iOS (Swift 6)'
 
   s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.source_files     = 'NumiOS/*.swift'
 
   s.swift_version = '6.0'
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '15.0'
   s.frameworks = 'Foundation'
   s.requires_arc = true
 end
